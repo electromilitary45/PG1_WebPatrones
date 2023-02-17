@@ -68,6 +68,9 @@ SELECT * FROM cita;
 insert into usuarios (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
 values ('Derek','Leiva','Villalobos','electronico@gmail.com','asd123asd123ads','cliente','88884444','activo');
 
+insert into usuarios (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
+values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','Administrador','72097414','activo');
+
 ----- INSERT SERVICIOS ----
 insert INTO servicio (nombreServicio, descripción, precio) values ('Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000);
 
