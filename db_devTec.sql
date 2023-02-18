@@ -6,7 +6,7 @@ Create database dev_tech;
 use dev_tech;
 
 ----
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
   idUsuario INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(20) not null,
   primApellido VARCHAR(20) not null,
@@ -65,10 +65,10 @@ SELECT * FROM cita;
 ------------------------------
 ----- INSERT USUARIOS ----
 
-insert into usuarios (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
+insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
 values ('Derek','Leiva','Villalobos','electronico@gmail.com','asd123asd123ads','cliente','88884444','activo');
 
-insert into usuarios (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
+insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
 values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','administrador','72097414','activo');
 
 ----- INSERT SERVICIOS ----
