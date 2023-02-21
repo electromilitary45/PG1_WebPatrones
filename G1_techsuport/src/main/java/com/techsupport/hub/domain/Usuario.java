@@ -9,10 +9,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
-/**
- *
- * @author Derek
- */
 
 @Data //y se importa lombok
 @Entity
@@ -26,12 +22,12 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     private String nombre;
-    private String primApellido;
-    private String segApellido;
+    private String primapellido;
+    private String segapellido;
     private String correo;
     private String contrasena;
     private String rol;
-    private String numTelefono;
+    private String numtelefono;
     private String status;
     
     
@@ -39,15 +35,15 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
     //---CONSTRUCTOR LLENO
-    public Usuario(long idUsuario, String nombre, String primApellido, String segApellido, String correo, String contrasena, String rol, String numTelefono, String status) {
+    public Usuario(Long idUsuario, String nombre, String primapellido, String segapellido, String correo, String contrasena, String rol, String numtelefono, String status) {
         this.idUsuario=idUsuario;
         this.nombre = nombre;
-        this.primApellido = primApellido;
-        this.segApellido = segApellido;
+        this.primapellido = primapellido;
+        this.segapellido = segapellido;
         this.correo = correo;
         this.contrasena = contrasena;
         this.rol = rol;
-        this.numTelefono = numTelefono;
+        this.numtelefono = numtelefono;
         this.status = status;
     }
     

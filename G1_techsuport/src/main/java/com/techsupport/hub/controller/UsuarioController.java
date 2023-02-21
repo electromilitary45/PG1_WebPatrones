@@ -5,36 +5,65 @@
 package com.techsupport.hub.controller;
 //-----Librerias----
 import com.techsupport.hub.domain.Usuario;
-import java.util.Arrays;
+import com.techsupport.hub.service.UsuarioService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 //------importante: Definir que es controllador
 @Controller // y se importa el org.springframework.stereotype.Controller; 
 
 public class UsuarioController {
-    //---se crea objeto------
-    
-    
-    
-    
+    //---se crea objeto tipo UsuarioServices------
+    @Autowired
+    private UsuarioService usuarioService;
     //---------ruta por defecto-------------
-    @GetMapping("/") 
-    public String index(Model model){ //importar springframe.ui.Model
-        
-        //--OBJETOS--
-        Usuario usuario = new Usuario(0, "Derek", "Leiva", "Villalobos","dereklevilla45@gmail.com", "asd123", "administrador", "88884444", "activo");
-        Usuario usuario2= new Usuario(1, "Derek1", "Leiva", "Villalobos","dereklevilla45@gmail.com", "asd123", "administrador", "88884444", "activo");
-        Usuario usuario3 = new Usuario(2, "Derek2", "Leiva", "Villalobos","dereklevilla45@gmail.com", "asd123", "administrador", "88884444", "activo");
-        
-        var usuarios=Arrays.asList(usuario,usuario2,usuario3);
+    @GetMapping("/")
+    
+    public String inicio(Model model){ //importar springframe.ui.Model
+        var usuarios=usuarioService.getUsuario();
         //--------model
         model.addAttribute("usuario", usuarios);
-        
-        
         return "index";
     }
+    
+    //---------------ELIMINAR-----------------------------
+    @GetMapping("/usuario/eliminar/{idUsuario}")
+    public String eliminaUsuario(Usuario usuario){
+        usuarioService.deleteUSuario(usuario);
+        return "redirect:/";
+    }
+    
+    //----------------REDICRECCION A NUEVO CLIENTE-------------------
+    @GetMapping("/usuario/nuevo")
+    public String nuevoUsuario(Usuario usuario){
+        return "modificaUsuario";
+    }
+    
+    //-----------------GUARDAR NEUVO CLIENTE-------------------
+    @PostMapping("/usuario/guardar")
+    public String guardar(Usuario usuario){
+        usuarioService.saveUSuario(usuario);
+        return "redirect:/";
+    }
+    
+    //-----------------REDIRECCION A PAGINA EDITAR CON OBJETO--------------------------------
+    @GetMapping("/usuario/editar/{idUsuario}")
+    public String editaUsuario(Usuario usuario, Model model){
+        usuario = usuarioService.getUsuario(usuario);
+        model.addAttribute("usuario",usuario);
+        return "modificaUsuario";
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
 }//fin usuarioController

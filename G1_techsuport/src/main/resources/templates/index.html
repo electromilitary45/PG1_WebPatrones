@@ -4,42 +4,53 @@
     <head>
         <title>INDEX</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
-        <div>CHIMBA</div>
-        
-        <br>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>idUsuario</th>
-                    <th>Nombre</th>
-                    <th>Primer Apellido</th>
-                    <th>Segundo Apellido</th>
-                    <th>Correo</th>
-                    <th>Contrasena</th>
-                    <th>Rol</th>
-                    <th>Telefono</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="usuario : ${usuario}">
-                    <td>[[${usuario.idUsuario}]]</td>
-                    <td>[[${usuario.nombre}]]</td>
-                    <td>[[${usuario.primApellido}]]</td>
-                    <td>[[${usuario.segApellido}]]</td>
-                    <td>[[${usuario.correo}]]</td>
-                    <td>[[${usuario.contrasena}]]</td>
-                    <td>[[${usuario.rol}]]</td>
-                    <td>[[${usuario.numTelefono}]]</td>
-                    <td>[[${usuario.status}]]</td>
-                </tr>
-            </tbody>
-        </table>
+        <div>LISTA USUARIOS</div>
 
+        <br>
+        <hr>
+        <a th:href="@{/usuario/nuevo}">Nuevo Cliente</a>
         
+        <div th:if="${usuario!=null and !usuario.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <th>Correo</th>
+                        <th>Contrasena</th>
+                        <th>Rol</th>
+                        <th>Telefono</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario : ${usuario}">
+                        <td>[[${usuario.nombre}]]</td>
+                        <td>[[${usuario.primapellido}]]</td>
+                        <td>[[${usuario.segapellido}]]</td>
+                        <td>[[${usuario.correo}]]</td>
+                        <td>[[${usuario.contrasena}]]</td>
+                        <td>[[${usuario.rol}]]</td>
+                        <td>[[${usuario.numtelefono}]]</td>
+                        <td>[[${usuario.status}]]</td>
+                        <td><a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}">Eliminar</a></td>
+                        <td><a th:href="@{/usuario/editar/}+${usuario.idUsuario}">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
+        <div th:if="${usuario ==null or usuario.empty}">
+            <h3>NO HAY REGISTROS DE USUARIOS</h3>
+        </div>
+        
+
+
+
+
     </body>
 </html>

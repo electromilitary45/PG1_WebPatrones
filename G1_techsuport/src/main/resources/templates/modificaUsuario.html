@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Modifica Usuario</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        
+        <h2>DATOS USUARIO</h2>
+        <hr>
+        <a th:href="@{/}">REGRESAR</a>
+        
+        <form th:action="@{/usuario/guardar}" method="POST" th:object="${usuario}">
+            <input type="hidden" name="idUsuario" th:field='*{idUsuario}'>
+            <label>NOMBRE</label>
+            <input type="text" name="nombre" value="" size="30" th:field="*{nombre}" required=""/>
+            <br>
+            
+            <label>Primer Apellido</label>
+            <input type="text" name="primapellido" value="" size="30" th:field="*{primapellido}" required=""/>
+            <br>
+            
+            <label>Segundo Apellido</label>
+            <input type="text" name="segapellido" value="" size="30" th:field="*{segapellido}" required=""/>
+            <br>
+            
+            <label>correo</label>
+            <input type="email" name="correo" value="" size="30" th:field="*{correo}" required=""/>
+            <br>
+            
+            <label>CONTRASEÑA</label>
+            <input type="text" name="contrasena" value="" size="30" th:field="*{contrasena}" required=""/>
+            <br>
+            
+            <label>Numero Telefono</label>
+            <input type="tel" name="numtelefono" value=""  size="10" th:field="*{numtelefono}" required=""/>
+            <br>
+            
+            <label>Status</label>
+            <select name="status" required="" th:field='*{rol}'>
+                <option value="cliente" th='<option value="cliente">text</option>' >Cliente</option>
+                <option value='administrador' th='<option value="administador">text</option>'>Administrador</option>
+            </select>
+            <br>
+            
+            <label>ROL</label>
+            <select name="rol"  required="" th:field='*{status}' >
+                <option value='activo' th='<option value="activo">text</option>' >Activo</option>
+                <option value='inactivo' th='<option value="inactivo">text</option>' >Inactivo</option>
+            </select>
+            <br>
+            
+            
+            <input type="submit" value="guardar" />
+        </form>
+        
+    </body>
+</html>
