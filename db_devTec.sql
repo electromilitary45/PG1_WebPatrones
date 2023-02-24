@@ -1,22 +1,41 @@
 -------- comandos DANGER-------
-drop database  dev_tech;
+drop SCHEMA  dev_tech;
+drop table dev_tech.usuario;
+
+drop user dev_techU;
+
+-------- USUARIOS Y CONTRASENAS DE ACCESO
+create user 'dev_techU'@'%' identified by 'clave1234';
+grant all privileges on dev_tech.* to 'dev_techU'@'%';
+flush privileges;
+
+create user 'usuario_prueba'@'%' identified by 'Usuar1o_Clave.';
+grant all privileges on dev_tech.* to 'usuario_prueba'@'%';
+flush privileges;
 
 -- Creacion de database--
-Create database dev_tech;
+Create SCHEMA dev_tech;
 use dev_tech;
 
+
+
 ----
-CREATE TABLE usuario (
-  idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE dev_tech.usuario (
+  id_Usuario INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(20) not null,
-  primApellido VARCHAR(20) not null,
-  segApellido VARCHAR(20) not null,
-  correo VARCHAR(60) not null UNIQUE ,
+  primapellido VARCHAR(20) not null,
+  segapellido VARCHAR(20) not null,
+  correo VARCHAR(60) not null,
   contrasena VARCHAR(50) CHECK (LENGTH(contrasena) >= 8) not null ,
-  rol ENUM('cliente', 'administrador') not null,
-  numTelefono VARCHAR (8) CHECK(LENGTH(numTelefono)=8) not null,
-  status ENUM('activo', 'inactivo')  default 'activo' not null
-);
+  rol varchar(20) not null,
+  numtelefono VARCHAR (8) CHECK(LENGTH(numtelefono)=8) not null,
+  status varchar(20) default 'activo' not null,
+  PRIMARY KEY (`id_Usuario`))
+
+ ENGINE = InnoDB
+ DEFAULT CHARACTER SET = utf8mb4
+ COLLATE = utf8mb4_eo_0900_ai_ci;
+
 
 CREATE TABLE servicio (
   idServicio  INT PRIMARY KEY AUTO_INCREMENT not null,
@@ -34,7 +53,7 @@ CREATE TABLE cita(
   fechaRechazada DATE null,
   URLMapa VARCHAR(255)null,
   status ENUM('pendiente', 'aceptada', 'rechazada') default 'pendiente' not null,
-  FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario)
+  FOREIGN KEY (id_Usuario) REFERENCES usuarios(id_Usuario)
 );
 
 CREATE TABLE cita_servicios (
@@ -54,7 +73,7 @@ CREATE TABLE facturas (
 );
 
 ----- CONSULTAS USUARIOS ----
-SELECT * FROM usuarios;
+SELECT * FROM dev_tech.usuario;
 
 ----- CONSULTAS SERVICIOS ----
 SELECT * FROM servicio;
@@ -65,7 +84,7 @@ SELECT * FROM cita;
 ------------------------------
 ----- INSERT USUARIOS ----
 
-insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
+insert into dev_tech.usuario (nombre, primapellido,segapellido,correo, contrasena,rol,numtelefono,status) 
 values ('Derek','Leiva','Villalobos','electronico@gmail.com','asd123asd123ads','cliente','88884444','activo');
 
 insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
