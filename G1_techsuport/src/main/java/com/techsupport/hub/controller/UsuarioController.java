@@ -22,7 +22,6 @@ public class UsuarioController {
     private UsuarioService usuarioService;
     //---------ruta por defecto-------------
     @GetMapping("/")
-    
     public String inicio(Model model){ //importar springframe.ui.Model
         var usuarios=usuarioService.getUsuario();
         //--------model
