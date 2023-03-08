@@ -18,8 +18,12 @@ Create SCHEMA dev_tech;
 use dev_tech;
 
 
+ ENGINE = InnoDB
+ DEFAULT CHARACTER SET = utf8mb4
+ COLLATE = utf8mb4_eo_0900_ai_ci;
 
 ----
+
 CREATE TABLE dev_tech.usuario (
   id_Usuario INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(20) not null,
@@ -32,44 +36,41 @@ CREATE TABLE dev_tech.usuario (
   status varchar(20) default 'activo' not null,
   PRIMARY KEY (`id_Usuario`))
 
- ENGINE = InnoDB
- DEFAULT CHARACTER SET = utf8mb4
- COLLATE = utf8mb4_eo_0900_ai_ci;
 
 
-CREATE TABLE servicio (
-  idServicio  INT PRIMARY KEY AUTO_INCREMENT not null,
-  status ENUM('activo', 'inactivo')  default 'activo' not null,
-  nombreServicio VARCHAR(30) not null,
-  descripción VARCHAR(255) not null,
+CREATE TABLE dev_tech.servicio (
+  id_Servicio  INT PRIMARY KEY AUTO_INCREMENT not null,
+  status VARCHAR(10)  default 'activo' not null,
+  nombre_Servicio VARCHAR(30) not null,
+  descripcion VARCHAR(255) not null,
   precio BIGINT not null
 );
 
-CREATE TABLE cita(
-  idCita INT PRIMARY KEY AUTO_INCREMENT not null,
-  idUsuario INT  not null,
-  fecha_cita DATE not null,
-  hora_cita TIME not null,
-  fechaRechazada DATE null,
-  URLMapa VARCHAR(255)null,
-  status ENUM('pendiente', 'aceptada', 'rechazada') default 'pendiente' not null,
+CREATE TABLE dev_tech.cita(
+  id_Cita INT PRIMARY KEY AUTO_INCREMENT not null,
+  id_Usuario INT  not null,
+  fecha_Cita DATE not null,
+  hora_Cita TIME not null,
+  fecha_Rechazada DATE null,
+  url_Mapa VARCHAR(255)null,
+  status VARCHAR(15) default 'pendiente' not null, --pendiente, aceptada, rechazada
   FOREIGN KEY (id_Usuario) REFERENCES usuarios(id_Usuario)
 );
 
-CREATE TABLE cita_servicios (
+/*CREATE TABLE cita_servicios (
   idCita INT not NULL,
   idServicio  INT not NULL,
   PRIMARY KEY (idCita,  idServicio),
   FOREIGN KEY (idCita) REFERENCES cita(idCita),
   FOREIGN KEY (idServicio) REFERENCES servicio (idServicio)
-);
+);*/
 
-CREATE TABLE facturas (
-  idFactura INT PRIMARY KEY AUTO_INCREMENT,
-  idCita INT,
-  fecha_factura DATE,
+CREATE TABLE dev_tech.facturas (
+  id_Factura INT PRIMARY KEY AUTO_INCREMENT,
+  id_Cita INT not null,
+  fecha_Factura DATE,
   total DECIMAL(10,2),
-  FOREIGN KEY (idCita) REFERENCES cita(idCita)
+  FOREIGN KEY (id_Cita) REFERENCES cita(id_Cita)
 );
 
 ----- CONSULTAS USUARIOS ----
