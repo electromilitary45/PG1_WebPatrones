@@ -12,49 +12,51 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 //------importante: Definir que es controllador
 @Controller // y se importa el org.springframework.stereotype.Controller; 
-
+@RequestMapping("/usuario")
 public class UsuarioController {
     //---se crea objeto tipo UsuarioServices------
     @Autowired
     private UsuarioService usuarioService;
+    
     //---------ruta por defecto-------------
-    @GetMapping("/")
+    @GetMapping("/listado")
     public String inicio(Model model){ //importar springframe.ui.Model
         var usuarios=usuarioService.getUsuario();
         //--------model
         model.addAttribute("usuario", usuarios);
-        return "index";
+        return "/usuario/listado";
     }
     
     //---------------ELIMINAR-----------------------------
-    @GetMapping("/usuario/eliminar/{idUsuario}")
+    @GetMapping("/eliminar/{idUsuario}")
     public String eliminaUsuario(Usuario usuario){
         usuarioService.deleteUSuario(usuario);
-        return "redirect:/";
+        return "redirect:/usuario/listado";
     }
     
     //----------------REDICRECCION A NUEVO CLIENTE-------------------
-    @GetMapping("/usuario/nuevo")
+    @GetMapping("/nuevo")
     public String nuevoUsuario(Usuario usuario){
-        return "modificaUsuario";
+        return "/usuario/modifica";
     }
     
     //-----------------GUARDAR NEUVO CLIENTE-------------------
-    @PostMapping("/usuario/guardar")
+    @PostMapping("/guardar")
     public String guardar(Usuario usuario){
         usuarioService.saveUSuario(usuario);
-        return "redirect:/";
+        return "redirect:/usuario/listado";
     }
     
     //-----------------REDIRECCION A PAGINA EDITAR CON OBJETO--------------------------------
-    @GetMapping("/usuario/editar/{idUsuario}")
+    @GetMapping("/editar/{idUsuario}")
     public String editaUsuario(Usuario usuario, Model model){
         usuario = usuarioService.getUsuario(usuario);
         model.addAttribute("usuario",usuario);
-        return "modificaUsuario";
+        return "/usuario/modifica";
     }
     
     
