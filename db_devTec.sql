@@ -34,7 +34,7 @@ CREATE TABLE dev_tech.usuario (
   rol varchar(20) not null,
   numtelefono VARCHAR (8) CHECK(LENGTH(numtelefono)=8) not null,
   status varchar(20) default 'activo' not null,
-  PRIMARY KEY (`id_Usuario`))
+  PRIMARY KEY (`id_Usuario`));
 
 
 
