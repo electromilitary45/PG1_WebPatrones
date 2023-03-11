@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TechSupport</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1865/1865273.png">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header th:fragment="header">
+            <nav class="navbar navbar-expand-lg bg-secondary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" th:href="@{/}"><img src="https://cdn-icons-png.flaticon.com/512/1865/1865273.png" alt="Logo" width="30" class="d-inline-block align-text-top" /> TechSupport</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--lista -->
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                        <ul class="navbar-nav">
+                             <!-- INICIO USUARIO -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">USUARIOS</a>
+                                <ul class="dropdown-menu bg-secondary">
+                                    <li><a class="dropdown-item bg-secondary" th:href="@{/usuario/listado}"><img src="https://cdn-icons-png.flaticon.com/512/901/901533.png" width="15" class="d-inline-block align-text-center"> LISTA</a></li>
+                                    <li><a class="dropdown-item bg-secondary" th:href="@{/usuario/nuevo}"><img src="https://cdn-icons-png.flaticon.com/512/3394/3394625.png" width="15" class="d-inline-block align-text-center"> AGREGAR USUARIO</a>
+                                    <li><a class="dropdown-item bg-secondary disable"><img src="https://cdn-icons-png.flaticon.com/512/9822/9822965.png" width="15" class="d-inline-block align-text-center"> MODIFICAR</a></li>
+                                </ul>
+                            </li>
+                            <!-- FIN USUARIO -->
+                        </ul>
+                    </div>
+                    <!-- fin lista -->
+                </div>
+            </nav>
+        </header>
+
+        <!--  -->
+
+        <!-- footer -->
+        <footer th:fragment="footer">
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2023 Copyright:
+                <a class="text-dark" >TechSupport</a>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        </footer>
+    </body>
+</html>
