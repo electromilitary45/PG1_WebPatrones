@@ -18,6 +18,7 @@
                                 <th scope="col">Fecha de Cita</th>
                                 <th scope="col">Hora de Cita</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Direccion</th>
                                 <th scope="col">Administración</th>
                             </tr>
                         </thead>
@@ -28,6 +29,7 @@
                                 <td>[[${cita.fecha_Cita}]]</td>
                                 <td>[[${cita.hora_Cita}]]</td>
                                 <td>[[${cita.status}]]</td>
+                                <td><a href="" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a></td>
                                 <td>
                                     <!-- BTN-MODIFICAR -->
                                     <a th:href="@{/cita/editar/}+${cita.id_Cita}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
