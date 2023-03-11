@@ -24,7 +24,7 @@ public class CitaServiceImpl implements CitaService{
 
     @Override
     public Cita getCita(Cita cita) {
-        return citaDao.findById(cita.getIdCita()).orElse(null);
+        return citaDao.findById(cita.getId_Cita()).orElse(null);
     }
 
     @Override

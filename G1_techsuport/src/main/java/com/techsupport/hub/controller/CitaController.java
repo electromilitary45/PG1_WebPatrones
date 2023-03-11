@@ -7,46 +7,48 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author sebas
  */
 @Controller
+@RequestMapping("/cita")
 public class CitaController {
     
     @Autowired
     private CitaService citaService;
     
-    @GetMapping("/cita")
+    @GetMapping("/listado")
     public String inicioCita(Model model){ //importar springframe.ui.Model
-        var citas=citaService.getCita();
+        var cita=citaService.getCita();
         //--------model
-        model.addAttribute("cita", citas);
-        return "indexCita";
+        model.addAttribute("cita", cita);
+        return "/cita/listado";
     }
     
-    @GetMapping("/cita/eliminar/{idCita}")
+    @GetMapping("/eliminar/{id_Cita}")
     public String eliminaCita(Cita cita){
         citaService.deleteCita(cita);
-        return "redirect:/cita";
+        return "redirect:/cita/listado";
     }
     
-    @GetMapping("/cita/nuevo")
+    @GetMapping("/nuevo")
     public String nuevaCita(Cita cita){
-        return "modificaCita";
+        return "/cita/modifica";
     }
     
-    @PostMapping("/cita/guardar")
+    @PostMapping("/guardar")
     public String guardarCita(Cita cita){
         citaService.saveCita(cita);
-        return "redirect:/cita";
+        return "redirect:/cita/listado";
     }
     
-    @GetMapping("/cita/editar/{idCita}")
+    @GetMapping("/editar/{id_Cita}")
     public String editaUsuario(Cita cita, Model model){
         cita = citaService.getCita(cita);
         model.addAttribute("cita",cita);
-        return "modificaCita";
+        return "/cita/modifica";
     }
 }

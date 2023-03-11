@@ -16,26 +16,27 @@ public class Cita implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCita;
+    private Long id_Cita;
     
-    private int idUsuario;
-    private String fechaCita;
-    private String horaCita;
-    private String fechaRechazo;
-    private String URLMapa;
+    private int id_Usuario;
+    private String fecha_Cita;
+    private String hora_Cita;
+    private String fecha_Rechazada;
+    private String url_Mapa;
     private String status;
 
     public Cita() {
     }
 
-    public Cita(Long idCita, int idUsuario, String fechaCita, String horaCita, String fechaRechazo, String URLMapa, String status) {
-        this.idCita = idCita;
-        this.idUsuario = idUsuario;
-        this.fechaCita = fechaCita;
-        this.horaCita = horaCita;
-        this.fechaRechazo = fechaRechazo;
-        this.URLMapa = URLMapa;
+    public Cita(Long id_Cita, int id_Usuario, String fecha_Cita, String hora_Cita, String fecha_Rechazada, String url_Mapa, String status) {
+        this.id_Cita = id_Cita;
+        this.id_Usuario = id_Usuario;
+        this.fecha_Cita = fecha_Cita;
+        this.hora_Cita = hora_Cita;
+        this.fecha_Rechazada = fecha_Rechazada;
+        this.url_Mapa = url_Mapa;
         this.status = status;
     }
+    
+    
 }
-

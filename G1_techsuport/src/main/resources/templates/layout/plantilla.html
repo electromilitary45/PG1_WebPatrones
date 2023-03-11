@@ -21,7 +21,7 @@
                     <!--lista -->
                     <div class="collapse navbar-collapse " id="navbarNav">
                         <ul class="navbar-nav">
-                             <!-- INICIO USUARIO -->
+                            <!-- INICIO USUARIO -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">USUARIOS</a>
                                 <ul class="dropdown-menu bg-secondary">
@@ -31,6 +31,16 @@
                                 </ul>
                             </li>
                             <!-- FIN USUARIO -->
+                            <!-- INICIO CITAS -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">CITAS</a>
+                                <ul class="dropdown-menu bg-secondary">
+                                    <li><a class="dropdown-item bg-secondary" th:href="@{/cita/listado}"><img src="https://cdn-icons-png.flaticon.com/512/901/901533.png" width="15" class="d-inline-block align-text-center"> LISTA</a></li>
+                                    <li><a class="dropdown-item bg-secondary" th:href="@{/cita/nuevo}"><img src="https://cdn-icons-png.flaticon.com/512/3394/3394625.png" width="15" class="d-inline-block align-text-center"> AGREGAR CITA</a>
+                                    <li><a class="dropdown-item bg-secondary disabled"><img src="https://cdn-icons-png.flaticon.com/512/9822/9822965.png" width="15" class="d-inline-block align-text-center"> MODIFICAR</a></li>
+                                </ul>
+                            </li>
+                            <!-- FIN CITAS -->
                         </ul>
                     </div>
                     <!-- fin lista -->
