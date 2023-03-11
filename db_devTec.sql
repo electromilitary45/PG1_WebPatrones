@@ -1,7 +1,7 @@
 -------- comandos DANGER-------
 drop SCHEMA  dev_tech;
 drop table dev_tech.usuario;
-
+drop table dev_tech.facturas;
 drop user dev_techU;
 
 -------- USUARIOS Y CONTRASENAS DE ACCESO
@@ -53,7 +53,11 @@ CREATE TABLE dev_tech.cita(
   url_Mapa VARCHAR(255)null,
   status VARCHAR(15) default 'pendiente' not null, /*--pendiente, aceptada, rechazada*/
   FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario)
-);
+)
+
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_eo_0900_ai_ci;
 
 /*CREATE TABLE cita_servicios (
   idCita INT not NULL,
@@ -63,17 +67,17 @@ CREATE TABLE dev_tech.cita(
   FOREIGN KEY (idServicio) REFERENCES servicio (idServicio)
 );*/
 
+/*
 CREATE TABLE dev_tech.facturas (
   id_Factura INT PRIMARY KEY AUTO_INCREMENT,
   id_Cita INT not null,
   fecha_Factura DATE,
   total DECIMAL(10,2),
   FOREIGN KEY (id_Cita) REFERENCES cita(id_Cita)
-)
+);
+*/
 
- ENGINE = InnoDB
- DEFAULT CHARACTER SET = utf8mb4
- COLLATE = utf8mb4_eo_0900_ai_ci;
+ 
 
 ----- CONSULTAS USUARIOS ----
 SELECT * FROM dev_tech.usuario;
