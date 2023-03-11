@@ -18,9 +18,6 @@ Create SCHEMA dev_tech;
 use dev_tech;
 
 
- ENGINE = InnoDB
- DEFAULT CHARACTER SET = utf8mb4
- COLLATE = utf8mb4_eo_0900_ai_ci;
 
 ----
 
@@ -34,7 +31,8 @@ CREATE TABLE dev_tech.usuario (
   rol varchar(20) not null,
   numtelefono VARCHAR (8) CHECK(LENGTH(numtelefono)=8) not null,
   status varchar(20) default 'activo' not null,
-  PRIMARY KEY (`id_Usuario`))
+  PRIMARY KEY (`id_Usuario`)
+  );
 
 
 
@@ -53,8 +51,8 @@ CREATE TABLE dev_tech.cita(
   hora_Cita TIME not null,
   fecha_Rechazada DATE null,
   url_Mapa VARCHAR(255)null,
-  status VARCHAR(15) default 'pendiente' not null, --pendiente, aceptada, rechazada
-  FOREIGN KEY (id_Usuario) REFERENCES usuarios(id_Usuario)
+  status VARCHAR(15) default 'pendiente' not null, /*--pendiente, aceptada, rechazada*/
+  FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario)
 );
 
 /*CREATE TABLE cita_servicios (
@@ -71,7 +69,11 @@ CREATE TABLE dev_tech.facturas (
   fecha_Factura DATE,
   total DECIMAL(10,2),
   FOREIGN KEY (id_Cita) REFERENCES cita(id_Cita)
-);
+)
+
+ ENGINE = InnoDB
+ DEFAULT CHARACTER SET = utf8mb4
+ COLLATE = utf8mb4_eo_0900_ai_ci;
 
 ----- CONSULTAS USUARIOS ----
 SELECT * FROM dev_tech.usuario;
