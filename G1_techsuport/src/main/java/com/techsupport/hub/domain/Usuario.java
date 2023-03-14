@@ -48,7 +48,6 @@ public class Usuario implements Serializable{
         this.status = status;
     }
     
-    
-    
+     
     
 }//fin class Usuario{}
