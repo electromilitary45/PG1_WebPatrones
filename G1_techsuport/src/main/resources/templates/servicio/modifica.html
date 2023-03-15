@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{layout/plantilla :: head}">
+        
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <!-- FORMULARIO -->
+
+        <div style="padding: 10px;" >
+            <h4 th:if="${cita.id_Cita != null}" class="text-center" >ID CITA: [[${cita.id_Cita}]]</h4>
+            <h4 th:if="${cita.id_Cita == null}" class="text-center" >Nueva Cita</h4>
+        </div>
+
+        <div style="margin: 20px; padding: 0 40% 0 0 " class="container">
+            <form th:action="@{/cita/guardar}" method="POST" th:object="${cita}" class="row">
+                <input type="hidden" name="idCita" th:field='*{id_Cita}'>
+                <div class="col-5">
+                    <label class="form-label">ID Usuario</label>
+                    <input type="text" class="form-control" size="15" id="idUsuario" th:field="*{id_Usuario}">
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Fecha Cita</label>
+                    <input type="date" class="form-control" size="15" id="fechaCita" th:field="*{fecha_Cita}">
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Hora Cita</label>
+                    <input type="time" class="form-control" id="horaCita" th:field="*{hora_Cita}">
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Maps</label>
+                    <input type="text" class="form-control" id="url_Mapa" th:field="*{url_Mapa}">
+                </div>
+                <div class="col-5">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" name="status" id="status" onchange="showInp()" th:field="*{status}">
+                        <option value='pendiente' th='<option value="pendiente">text</option>'>Pendiente</option>
+                        <option value='aceptada' th='<option value="aceptada">text</option>'>Aceptada</option>
+                        <option value='rechazada' th='<option value="rechazada">text</option>'>Rechazada</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                    <label class="form-label" id="lblFerchaRechazada" style="display: none">Fecha de Rechazo</label>
+                    <input type="text" class="form-control" id="fechaCitaRechazada" style="display: none" th:field="*{fecha_Rechazada}">
+                </div>
+                
+                <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+            </form>
+        </div>
+
+        <!-- FIN FORMULARIO -->
+
+        <!-- HEADER -->
+        <footer th:replace="~{layout/plantilla :: footer}"></footer>
+    </body>
+</html>
