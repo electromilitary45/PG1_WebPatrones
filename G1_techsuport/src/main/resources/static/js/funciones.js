@@ -1,8 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/javascript.js to edit this template
- */
-
 function buscarTablaServicio() {
     alert(hola);
     // Declare variables
@@ -27,4 +22,16 @@ function buscarTablaServicio() {
     }
      * 
      */
+}
+
+function showInp(){
+    getSelectedValue = document.getElementById("status").value;
+    
+    if(getSelectedValue == "rechazada"){
+        document.getElementById("fechaCitaRechazada").style.display = "inline-block";
+        document.getElementById("lblFerchaRechazada").style.display = "inline-block";
+    } else if (getSelectedValue != "Rechazada"){
+        document.getElementById("fechaCitaRechazada").style.display = "none";
+        document.getElementById("lblFerchaRechazada").style.display = "none";
+    }
 }
