@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head th:replace="~{layout/plantilla :: head}">
-    <body>
-        <!-- HEADER -->
-        <header th:replace="~{layout/plantilla :: header}"></header>
 
-        <div>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+     
+     <head th:replace="~{layout/plantilla :: head}"></head>
 
+     <body>
+     
+         <header th:replace="~{layout/plantilla :: header}"></header>
             <section class="container" style="margin-top: 20px;">
                 <div class="row" >
-                    <div class="lg-col-9" th:if="${servicios!=null and !servicios.empty}">
+                    <div class="lg-col-9" th:if="${servicio!=null and !servicio.empty}">
                         <h3 class="text-center">Lista de Servicios</h3>
                         <!-- TABLA -->
-                        <table class="table table-hover" id="tabla">
-                            <div class="input-group col-3">
-                                <input type="text" id="texto"class="form-control " onkeyup="buscarTablaServicio()" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon1">
-                            </div>
+                        <table class="table table-hover" >
+                            
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -32,36 +25,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="servicios : ${servicios}">
-                                    <th scope="row">[[${servicios.idServicio}]]</th>
-                                    <td></td>
-                                    <td>[[${servicios.nombreServicio}]]</td>
-                                    <td>[[${servicios.descripcion}]]</td>
-                                    <td>[[${servicios.precio}]]</td>
-                                    <td>[[${servicios.status}]]</td>
+                                <tr th:each="servicio : ${servicio}">
+                                    <th scope="row">[[${servicio.idServicio}]]</th>
+                                    <td>[[${servicio.Imagen}]]</td>
+                                    <td>[[${servicio.nombreServicio}]]</td>
+                                    <td>[[${servicio.descripcion}]]</td>
+                                    <td>[[${servicio.precio}]]</td>
+                                    <td>[[${servicio.status}]]</td>
 
                                     <td>
                                         <!-- BTN-MODIFICAR -->
-                                        <a th:href="@{/servicio/editar/}+${servicios.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
+                                        <a th:href="@{/servicio/editar/}+${servicio.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
                                         <!-- BTN-ELIMINAR -->
-                                        <a th:href="@{/servicio/eliminar/}+${servicios.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" width="32px"></a>
+                                        <a th:href="@{/servicio/eliminar/}+${servicio.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" width="32px"></a>
                                     </td>
                                 </tr>
                             </tbody>
-
                         </table>
-                        <!-- FOOTER -->
                     </div>
-                    <div th:if="${servicios ==null or servicios.empty}">
+                    <div th:if="${servicio ==null or servicio.empty}">
                         <p>NO HAY DATOS</p>
                     </div>
                 </div>
             </section>
-
-        </div>
         
-        <!-- FOOTER -->
         <footer th:replace="~{layout/plantilla :: footer}"></footer>
     </body>
-
 </html>

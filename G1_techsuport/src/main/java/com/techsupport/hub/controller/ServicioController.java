@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.techsupport.hub.controller;
 
 import com.techsupport.hub.domain.Servicio;
@@ -27,9 +24,9 @@ public class ServicioController {
     //----ruta por defecto
     @GetMapping("/listado")
     public String inicio(Model model){ //importar springframe.ui.Model
-        var servicios=servicioService.getServicio();
+        var servicio=servicioService.getServicio();
         //--------model
-        model.addAttribute("servicio", servicios);
+        model.addAttribute("servicio", servicio);
         return "/servicio/listado";
     }
      
@@ -48,7 +45,7 @@ public class ServicioController {
         return "redirect:/servicio/listado";
     }
      @GetMapping("/editar/{idServicio}")
-    public String editaUsuario(Servicio servicio, Model model){
+    public String editaServicio(Servicio servicio, Model model){
         servicio = servicioService.getServicio(servicio);
         model.addAttribute("servicio",servicio);
         return "/servicio/modifica";
