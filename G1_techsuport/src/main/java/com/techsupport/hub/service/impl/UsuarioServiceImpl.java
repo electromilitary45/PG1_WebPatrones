@@ -18,7 +18,6 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     private UsuarioDao usuarioDao;
     
-    
     //--Metodo Read de todos los Usuarios BD--
     @Override
     public List<Usuario> getUsuario() {
@@ -30,19 +29,17 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Usuario getUsuario(Usuario usuario) {
         return usuarioDao.findById(usuario.getIdUsuario()).orElse(null);
     }
-
+    
     //--metodo para borrar
     @Override
     public void deleteUSuario(Usuario usuario) {
         usuarioDao.delete(usuario);
     }
-
+    
     //--metodo guardar
     @Override
     public void saveUSuario(Usuario usuario) {
         usuarioDao.save(usuario);
     }
-    
-    
-    
+
 }

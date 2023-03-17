@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-    <head th:replace="~{layout/plantilla :: head}">
-        
-        </head>
+    <head th:replace="~{layout/plantilla :: head}"></head>
+    
     <body>
         <!-- HEADER -->
         <header th:replace="~{layout/plantilla :: header}"></header>
@@ -30,7 +29,7 @@
                     <label class="form-label">Precio</label>
                     <input type="number" class="form-control" id="precio" th:field="*{precio}">
                 </div>
-                
+
                 <div class="col-5">
                     <label class="form-label">Status</label>
                     <select class="form-select" name="status" id="status" onchange="showInp()" th:field="*{status}">
@@ -39,11 +38,7 @@
                         <option value='rechazada' th='<option value="rechazada">text</option>'>Rechazada</option>
                     </select>
                 </div>
-                <div class="col-5">
-                    <label class="form-label" id="lblFerchaRechazada" style="display: none">Fecha de Rechazo</label>
-                    <input type="text" class="form-control" id="fechaCitaRechazada" style="display: none" th:field="*{fecha_Rechazada}">
-                </div>
-                
+
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
             </form>
         </div>

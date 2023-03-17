@@ -35,21 +35,23 @@ public class ServicioController {
         servicioService.deleteServicio(servicio);
         return "redirect:/servicio/listado";
     }
+    
     @GetMapping("/nuevo")
     public String nuevoServicio(Servicio servicio){
         return "/servicio/modifica";
     }
+    
     @PostMapping("/guardar")
     public String guardar(Servicio servicio){
         servicioService.saveServicio(servicio);
         return "redirect:/servicio/listado";
     }
-     @GetMapping("/editar/{idServicio}")
+    
+    @GetMapping("/editar/{idServicio}")
     public String editaServicio(Servicio servicio, Model model){
         servicio = servicioService.getServicio(servicio);
         model.addAttribute("servicio",servicio);
         return "/servicio/modifica";
     }
-    
     
 }
