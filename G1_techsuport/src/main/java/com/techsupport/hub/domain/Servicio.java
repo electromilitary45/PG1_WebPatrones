@@ -22,12 +22,12 @@ public class Servicio implements Serializable{
     
     private String nombreServicio;
     private String descripcion;
-    private int precio;
+    private long precio;
     private String status;
     
     public Servicio(){}
     
-    public Servicio(Long idServicio, String nombreServicio, String descripcion, int precio, String status) {
+    public Servicio(Long idServicio, String nombreServicio, String descripcion, long precio, String status) {
         this.idServicio = idServicio;
         this.nombreServicio = nombreServicio;
         this.descripcion = descripcion;
