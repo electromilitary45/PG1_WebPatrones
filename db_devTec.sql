@@ -38,7 +38,7 @@ CREATE TABLE dev_tech.usuario (
 
 CREATE TABLE dev_tech.servicio (
   id_Servicio  INT PRIMARY KEY AUTO_INCREMENT not null,
-  imagen varchar(150),
+  imagen varchar(256),
   status VARCHAR(10)  default 'activo' not null,
   nombre_Servicio VARCHAR(30) not null,
   descripcion VARCHAR(255) not null,
@@ -101,11 +101,11 @@ insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,num
 values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','administrador','72097414','activo');
 
 ----- INSERT SERVICIOS ----
-insert INTO servicio (status, nombre_Servicio, descripcion, precio) values ('activo', 'Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000);
+insert INTO servicio (status, nombre_Servicio, descripcion, precio,imagen) values ('activo', 'Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000,"https://www.google.com/url?sa=i&url=https%3A%2F%2Fhardzone.es%2F2018%2F03%2F04%2Fcambiar-pasta-termica-ordenador%2F&psig=AOvVaw3XxQoOi2cXHtaBGaaTYKI6&ust=1680362361493000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJDs1dq7hv4CFQAAAAAdAAAAABAS");
 
 ----- INSERT CITAS ----
-insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
-insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (2,'2023-07-22','9:30:00','https://www.google.com/maps/place/cargo', 'pendiente');
+insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
+insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (2,1,'2023-07-22','9:30:00','https://www.google.com/maps/place/cargo', 'pendiente');
 insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
 
 update cita set URLMapa='alo' WHERE idCita=1;

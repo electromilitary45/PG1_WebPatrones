@@ -20,19 +20,22 @@ public class Servicio implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idServicio;
     
+    private String imagen;
     private String nombreServicio;
     private String descripcion;
     private long precio;
     private String status;
     
     public Servicio(){}
-    
-    public Servicio(Long idServicio, String nombreServicio, String descripcion, long precio, String status) {
-        this.idServicio = idServicio;
+
+    public Servicio(String imagen, String nombreServicio, String descripcion, long precio, String status) {
+        this.imagen = imagen;
         this.nombreServicio = nombreServicio;
         this.descripcion = descripcion;
         this.precio = precio;
         this.status = status;
     }
+    
+    
     
 }
