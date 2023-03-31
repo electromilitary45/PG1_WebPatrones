@@ -47,12 +47,14 @@ CREATE TABLE dev_tech.servicio (
 CREATE TABLE dev_tech.cita(
   id_Cita INT PRIMARY KEY AUTO_INCREMENT not null,
   id_Usuario INT  not null,
+  id_Servicio int not null,
   fecha_Cita DATE not null,
   hora_Cita TIME not null,
   fecha_Rechazada DATE null,
   url_Mapa VARCHAR(255)null,
   status VARCHAR(15) default 'pendiente' not null, /*--pendiente, aceptada, rechazada*/
-  FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario)
+  FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario),
+  FOREIGN KEY (id_Servicio) REFERENCES dev_tech.servicio(id_Servicio)
 )
 
 ENGINE = InnoDB
@@ -103,5 +105,6 @@ insert INTO servicio (status, nombre_Servicio, descripcion, precio) values ('act
 ----- INSERT CITAS ----
 insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
 insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (2,'2023-07-22','9:30:00','https://www.google.com/maps/place/cargo', 'pendiente');
+insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
 
 update cita set URLMapa='alo' WHERE idCita=1;
