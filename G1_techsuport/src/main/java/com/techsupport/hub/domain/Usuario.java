@@ -16,7 +16,6 @@ public class Usuario implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_Usuario")
     private Long idUsuario;
     
     private String nombre;
@@ -33,8 +32,8 @@ public class Usuario implements Serializable{
     public Usuario() {
     }
     //---CONSTRUCTOR LLENO
-
-    public Usuario(String nombre, String primapellido, String segapellido, String correo, String contrasena, String rol, String numtelefono, String status) {
+    public Usuario(Long idUsuario, String nombre, String primapellido, String segapellido, String correo, String contrasena, String rol, String numtelefono, String status) {
+        this.idUsuario=idUsuario;
         this.nombre = nombre;
         this.primapellido = primapellido;
         this.segapellido = segapellido;
@@ -42,6 +41,6 @@ public class Usuario implements Serializable{
         this.contrasena = contrasena;
         this.rol = rol;
         this.numtelefono = numtelefono;
-        this.status = status;
-    }    
+        this.status = status;}
+
 }//fin class Usuario{}

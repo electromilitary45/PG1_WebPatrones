@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
     <head th:replace="~{layout/plantilla :: head}">
-
+        
     </head>
 
     <body>
@@ -21,10 +21,7 @@
                 <input type="hidden" name="idCita" th:field='*{id_Cita}'>
                 <div class="col-5">
                     <label class="form-label">ID Usuario</label>
-                    <select  class="form-control" name="categoria" required="true" >
-                        <option>SELECCIONE</option>
-                        <option th:each="usuario:${usuario}" th:value="${usuario.idUsuario}" th:field="*{usuario.idUsuario}">[[${usuario.idUsuario}]]-[[${usuario.nombre}]] [[${usuario.primapellido}]] [[${usuario.segapellido}]]</option>
-                    </select>
+                    <input type="text" class="form-control" size="15" id="idUsuario" th:field="*{id_Usuario}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Servicio</label>
@@ -48,14 +45,14 @@
                 <div class="col-5">
                     <label class="form-label">Status</label>
                     <select class="form-select" name="status" id="status" onchange="showInp()" th:field="*{status}">
-                        <option th:value='Pendiente' th:field="*{status}">Pendiente</option>
-                        <option th:value='Aceptada' th:field="*{status}">Aceptada</option>
-                        <option th:value='Rechazada' th:field="*{status}">Rechazada</option>
+                        <option value='pendiente' th='<option value="pendiente">text</option>'>Pendiente</option>
+                        <option value='aceptada' th='<option value="aceptada">text</option>'>Aceptada</option>
+                        <option value='rechazada' th='<option value="rechazada">text</option>'>Rechazada</option>
                     </select>
                 </div>
                 <div class="col-5">
-                    <label class="form-label" id="lblFerchaRechazada" style="display: none" >Fecha de Rechazo</label>
-                    <input type="date"  class="form-control" id="fechaCitaRechazada" th:field="*{fecha_Rechazada}" style="display: none">
+                    <label class="form-label" id="lblFerchaRechazada" style="display: none">Fecha de Rechazo</label>
+                    <input type="text" class="form-control" id="fechaCitaRechazada" style="display: none" th:field="*{fecha_Rechazada}">
                 </div>
                 
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>

@@ -18,7 +18,6 @@ public class Servicio implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_Servicio")
     private Long idServicio;
     
     private String nombreServicio;
@@ -27,14 +26,13 @@ public class Servicio implements Serializable{
     private String status;
     
     public Servicio(){}
-
-    public Servicio(String nombreServicio, String descripcion, long precio, String status) {
+    
+    public Servicio(Long idServicio, String nombreServicio, String descripcion, long precio, String status) {
+        this.idServicio = idServicio;
         this.nombreServicio = nombreServicio;
         this.descripcion = descripcion;
         this.precio = precio;
         this.status = status;
     }
-    
-    
     
 }

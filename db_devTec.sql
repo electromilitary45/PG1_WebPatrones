@@ -38,7 +38,7 @@ CREATE TABLE dev_tech.usuario (
 
 CREATE TABLE dev_tech.servicio (
   id_Servicio  INT PRIMARY KEY AUTO_INCREMENT not null,
-  status VARCHAR(10)  default 'activo' not null, 
+  status VARCHAR(10)  default 'activo' not null,
   nombre_Servicio VARCHAR(30) not null,
   descripcion VARCHAR(255) not null,
   precio BIGINT not null
@@ -51,10 +51,8 @@ CREATE TABLE dev_tech.cita(
   hora_Cita TIME not null,
   fecha_Rechazada DATE null,
   url_Mapa VARCHAR(255)null,
-  id_Servicio int,
   status VARCHAR(15) default 'pendiente' not null, /*--pendiente, aceptada, rechazada*/
-  FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario),
-  foreign key (id_Servicio) references dev_tech.servicio(id_Servicio)
+  FOREIGN KEY (id_Usuario) REFERENCES dev_tech.usuario(id_Usuario)
 )
 
 ENGINE = InnoDB
@@ -85,10 +83,10 @@ CREATE TABLE dev_tech.facturas (
 SELECT * FROM dev_tech.usuario;
 
 ----- CONSULTAS SERVICIOS ----
-SELECT * FROM dev_tech.servicio;
+SELECT * FROM servicio;
 
 ----- CONSULTAS CITAS ----
-SELECT * FROM dev_tech.cita;
+SELECT * FROM cita;
 
 ------------------------------
 ----- INSERT USUARIOS ----
@@ -103,10 +101,7 @@ values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','admin
 insert INTO servicio (status, nombre_Servicio, descripcion, precio) values ('activo', 'Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000);
 
 ----- INSERT CITAS ----
-insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa,id_Servicio, status) values (1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo',1, 'pendiente');
-insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa,id_Servicio, status) values (1,'2023-07-22','9:30:00','https://www.google.com/maps/place/cargo',1, 'pendiente');
-insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa,id_Servicio, status) values (1,'2023-07-22','9:30:00','https://www.google.com/maps/place/Avenida+2,+Cartago+Province,+Cartago/@9.8651081,-83.9341595,17z/data=!4m6!3m5!1s0x8fa0dfe1e82586d5:0x9c6f02e4b6aff617!8m2!3d9.8653866!4d-83.9313919!16s%2Fg%2F11c546ln4p',1, 'pendiente');
+insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
+insert into cita(id_Usuario, fecha_Cita, hora_Cita, url_Mapa, status) values (2,'2023-07-22','9:30:00','https://www.google.com/maps/place/cargo', 'pendiente');
 
 update cita set URLMapa='alo' WHERE idCita=1;
-update cita set status='Aceptada' WHERE id_Cita=6;
-update cita set id_Usuario=2 WHERE id_Cita=6;
