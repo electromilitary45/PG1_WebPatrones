@@ -38,6 +38,7 @@ CREATE TABLE dev_tech.usuario (
 
 CREATE TABLE dev_tech.servicio (
   id_Servicio  INT PRIMARY KEY AUTO_INCREMENT not null,
+  imagen varchar(150),
   status VARCHAR(10)  default 'activo' not null,
   nombre_Servicio VARCHAR(30) not null,
   descripcion VARCHAR(255) not null,
