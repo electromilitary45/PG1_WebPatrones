@@ -42,15 +42,15 @@
                 <div class="col-5">
                     <label class="form-label">Status</label>
                     <select class="form-select" th:field="*{status}">
-                        <option value='activo' th='<option value="activo">text</option>'>Activo</option>
-                        <option value='inactivo' th='<option value="inactivo">text</option>'>Inactivo</option>
+                        <option value='1' >Activo</option>
+                        <option value='0' >Inactivo</option>
                     </select>
                 </div>
                 <div class="col-5">
                     <label class="form-label">ROL</label>
                     <select class="form-select" th:field="*{rol}">
-                        <option value="cliente" th='<option value="cliente">text</option>'>Cliente</option>
-                        <option value='administrador' th='<option value="administador">text</option>'>Administrador</option>
+                        <option value="Cliente">Cliente</option>
+                        <option value='Administrador' >Administrador</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>

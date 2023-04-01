@@ -23,15 +23,39 @@ function buscarTablaServicio() {
      * 
      */
 }
+function showRec(){
+    getSelectedValue = document.getElementById("status").value;
+    
+    if(getSelectedValue == "rechazada"){
+        document.getElementById("fechaCitaRechazada").style.display = "inline-block";
+        document.getElementById("lblFerchaRechazada").style.display = "inline-block";
 
+        
+    } else if (getSelectedValue != "Rechazada"){
+        document.getElementById("fechaCitaRechazada").style.display = "none";
+        document.getElementById("lblFerchaRechazada").style.display = "none";
+    }
+    
+}
 function showInp(){
     getSelectedValue = document.getElementById("status").value;
     
     if(getSelectedValue == "rechazada"){
         document.getElementById("fechaCitaRechazada").style.display = "inline-block";
         document.getElementById("lblFerchaRechazada").style.display = "inline-block";
+        
     } else if (getSelectedValue != "Rechazada"){
         document.getElementById("fechaCitaRechazada").style.display = "none";
         document.getElementById("lblFerchaRechazada").style.display = "none";
     }
 }
+
+
+
+function fechaRecNuevo(){
+    let fecha = document.getElementById('fechaCitaNuevo').value;
+    document.getElementById('fechaCitaRechazadaNuevo').value=fecha;
+
+}
+
+ 

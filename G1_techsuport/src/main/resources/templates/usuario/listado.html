@@ -40,7 +40,10 @@
                                 <td>[[${usuario.contrasena}]]</td>
                                 <td>[[${usuario.rol}]]</td>
                                 <td>[[${usuario.numtelefono}]]</td>
-                                <td>[[${usuario.status}]]</td>
+                                <td>
+                                    <button th:if="${usuario.status == true}"  class="btn btn-success">ACTIVO</button>
+                                    <button th:if="${usuario.status == false}"  class="btn btn-danger">INACTIVO</button>
+                                </td>
                                 <td>
                                     <!-- BTN-MODIFICAR -->
                                     <a th:href="@{/usuario/editar/}+${usuario.idUsuario}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
