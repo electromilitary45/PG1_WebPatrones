@@ -14,8 +14,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">ID Usuario</th>
-                                <th scope="col">ID Servicio</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Servicio</th>
                                 <th scope="col">Fecha de Cita</th>
                                 <th scope="col">Hora de Cita</th>
                                 <th scope="col">Status</th>
@@ -26,11 +26,15 @@
                         <tbody>
                             <tr th:each="cita : ${cita}">
                                 <th scope="row">[[${cita.id_Cita}]]</th>
-                                <td>[[${cita.id_Usuario}]]</td>
-                                <td>[[${cita.id_Servicio}]]</td>
+                                <td>[[${cita.usuario.nombre}]] [[${cita.usuario.primapellido}]]</td>
+                                <td>[[${cita.servicio.idServicio}]] - [[${cita.servicio.nombreServicio}]]</td>
                                 <td>[[${cita.fecha_Cita}]]</td>
                                 <td>[[${cita.hora_Cita}]]</td>
-                                <td>[[${cita.status}]]</td>
+                                <td>
+                                    <button th:if="${cita.status == 'pendiente'}" type="button" class="btn btn-warning">PENDIENTE</button>
+                                    <button th:if="${cita.status == 'aceptada'}" type="button" class="btn btn-success">ACEPTADA</button>
+                                    <button th:if="${cita.status == 'rechazada'}" type="button" class="btn btn-danger">RECHAZADA</button>
+                                </td>
                                 <td><a th:href="${cita.url_Mapa}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a></td>
                                 <td>
                                     <!-- BTN-MODIFICAR -->

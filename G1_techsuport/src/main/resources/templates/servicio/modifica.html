@@ -29,13 +29,16 @@
                     <label class="form-label">Precio</label>
                     <input type="number" class="form-control" id="precio" th:field="*{precio}">
                 </div>
+                <div class="col-5">
+                    <label class="form-label">IMAGEN</label>
+                    <input type="text" class="form-control" id="precio" th:field="*{imagen}">
+                </div>
 
                 <div class="col-5">
                     <label class="form-label">Status</label>
                     <select class="form-select" name="status" id="status" onchange="showInp()" th:field="*{status}">
-                        <option value='pendiente' th='<option value="pendiente">text</option>'>Pendiente</option>
-                        <option value='aceptada' th='<option value="aceptada">text</option>'>Aceptada</option>
-                        <option value='rechazada' th='<option value="rechazada">text</option>'>Rechazada</option>
+                        <option value='1' >Activa</option>
+                        <option value='0' >Inactiva</option>
                     </select>
                 </div>
 
