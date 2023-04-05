@@ -58,4 +58,10 @@ function fechaRecNuevo(){
 
 }
 
+function imprimir(){
+    window.print();
+}
+
+
+
  
