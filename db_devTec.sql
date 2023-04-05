@@ -17,8 +17,6 @@ flush privileges;
 Create SCHEMA dev_tech;
 use dev_tech;
 
-
-
 ----
 
 CREATE TABLE dev_tech.usuario (
@@ -30,7 +28,7 @@ CREATE TABLE dev_tech.usuario (
   contrasena VARCHAR(50) CHECK (LENGTH(contrasena) >= 8) not null ,
   rol varchar(20) not null,
   numtelefono VARCHAR (8) CHECK(LENGTH(numtelefono)=8) not null,
-  status varchar(20) default 'activo' not null,
+  status bool,
   PRIMARY KEY (`id_Usuario`)
   );
 
@@ -39,7 +37,7 @@ CREATE TABLE dev_tech.usuario (
 CREATE TABLE dev_tech.servicio (
   id_Servicio  INT PRIMARY KEY AUTO_INCREMENT not null,
   imagen varchar(256),
-  status VARCHAR(10)  default 'activo' not null,
+  status bool,
   nombre_Servicio VARCHAR(30) not null,
   descripcion VARCHAR(255) not null,
   precio BIGINT not null
@@ -86,22 +84,25 @@ CREATE TABLE dev_tech.facturas (
 SELECT * FROM dev_tech.usuario;
 
 ----- CONSULTAS SERVICIOS ----
-SELECT * FROM servicio;
+SELECT * FROM dev_tech.servicio;
 
 ----- CONSULTAS CITAS ----
-SELECT * FROM cita;
+SELECT * FROM dev_tech.cita;
 
 ------------------------------
 ----- INSERT USUARIOS ----
 
 insert into dev_tech.usuario (nombre, primapellido,segapellido,correo, contrasena,rol,numtelefono,status) 
-values ('Derek','Leiva','Villalobos','electronico@gmail.com','asd123asd123ads','cliente','88884444','activo');
+values ('Derek','Leiva','Villalobos','electronico@gmail.com','asd123asd123ads','cliente','88884444',1);
 
 insert into usuario (nombre, primApellido,segApellido,correo, contrasena,rol,numTelefono,status) 
-values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','administrador','72097414','activo');
+values ('Sebastian','Cerdas','Cedeño','sebas.cc22@gmail.com','sebas2207','administrador','72097414',1);
 
 ----- INSERT SERVICIOS ----
-insert INTO servicio (status, nombre_Servicio, descripcion, precio,imagen) values ('activo', 'Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000,"https://www.google.com/url?sa=i&url=https%3A%2F%2Fhardzone.es%2F2018%2F03%2F04%2Fcambiar-pasta-termica-ordenador%2F&psig=AOvVaw3XxQoOi2cXHtaBGaaTYKI6&ust=1680362361493000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJDs1dq7hv4CFQAAAAAdAAAAABAS");
+insert INTO servicio (status, nombre_Servicio, descripcion, precio,imagen) values (1, 'Cambio de pasta termica','Cambio de pasta terminca para computadora, puede ser Laptop o Desktop', 1000,"https://i0.wp.com/radiocitycba.com.ar/wp-content/uploads/2023/03/Pasta-termica-grafica-930x487-1.webp?resize=768%2C402&ssl=1");
+insert INTO servicio (status, nombre_Servicio, descripcion, precio,imagen) values (1, 'Cambio de memorias Ram','Cambio de memorias de ram para computadora, puede ser Laptop o Desktop', 1000,"https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2017/09/memoria-ram-pc.jpg?tf=3840x");
+
+update servicio set nombre_Servicio = "Cambio de Memorias Ram" where id_Servicio=2;
 
 ----- INSERT CITAS ----
 insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
@@ -109,3 +110,4 @@ insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, statu
 insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
 
 update cita set URLMapa='alo' WHERE idCita=1;
+
