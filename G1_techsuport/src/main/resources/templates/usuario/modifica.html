@@ -17,40 +17,41 @@
                 <input type="hidden" name="idUsuario" th:field='*{idUsuario}' >
                 <div class="col-5">
                     <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" size="15" id="nombre" th:field="*{nombre}">
+                    <input type="text" class="form-control" size="15" id="nombre" required="" th:field="*{nombre}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Primer apellido</label>
-                    <input type="text" class="form-control" id="primapellido" th:field="*{primapellido}">
+                    <input type="text" class="form-control" id="primapellido" required="" th:field="*{primapellido}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Segundo Apellido</label>
-                    <input type="text" class="form-control" id="segapellido" th:field="*{segapellido}">
+                    <input type="text" class="form-control" id="segapellido" required="" th:field="*{segapellido}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="correo" th:field="*{correo}">
+                    <input type="email" class="form-control" id="correo" required="" th:field="*{correo}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Contraseña</label>
-                    <input type="text" class="form-control" id="contrasena" th:field="*{contrasena}">
+                    <input type="text" class="form-control" id="contrasena" minlength="8" required="" th:field="*{contrasena}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Telefono</label>
-                    <input type="number" class="form-control" id="Telefono" th:field="*{numtelefono}">
+                    <input type="number" class="form-control" id="Telefono" required="" minlength="8" th:field="*{numtelefono}">
                 </div>
                 <div class="col-5">
                     <label class="form-label">Status</label>
-                    <select class="form-select" th:field="*{status}">
-                        <option value='1' >Activo</option>
-                        <option value='0' >Inactivo</option>
+                    <select class="form-select" required="" th:field="*{status}">
+                        <option value=1 >Activo</option>
+                        <option value=0 >Inactivo</option>
                     </select>
                 </div>
                 <div class="col-5">
                     <label class="form-label">ROL</label>
-                    <select class="form-select" th:field="*{rol}">
+                    <select class="form-select" required="" th:field="*{rol}">
                         <option value="Cliente">Cliente</option>
-                        <option value='Administrador' >Administrador</option>
+                        <option value="Empleado" >Empleado</option>
+                        <option value="Administrador" >Administrador</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>

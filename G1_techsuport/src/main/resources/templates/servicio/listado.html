@@ -10,8 +10,11 @@
             <div class="row" >
                 <div class="lg-col-9" th:if="${servicio!=null and !servicio.empty}">
                     <h3 class="text-center">Lista de Servicios</h3>
+                    <div th:if="${servicio ==null or servicio.empty}">
+                        <p>NO HAY DATOS</p>
+                    </div>
                     <!-- TABLA -->
-                    <table class="table table-hover">
+                    <table class="table table-hover"  th:if="${servicio!=null and !servicio.empty}">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -45,9 +48,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div th:if="${servicio ==null or servicio.empty}">
-                    <p>NO HAY DATOS</p>
-                </div>
+
             </div>
         </section>
 

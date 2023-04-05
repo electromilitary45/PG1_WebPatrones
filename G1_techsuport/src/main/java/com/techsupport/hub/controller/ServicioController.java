@@ -54,4 +54,12 @@ public class ServicioController {
         return "/servicio/modifica";
     }
     
+    @GetMapping("/listadoC")
+    public String listadoC(Model model){ //importar springframe.ui.Model
+        var servicio=servicioService.getServicio();
+        //--------model
+        model.addAttribute("servicio", servicio);
+        return "/servicio/listadoC";
+    }
+    
 }
