@@ -75,8 +75,9 @@
                 <div class="row">
                     <div class="d-flex flex-column justify-content-between col-auto bg-secondary min-vh-100">
                         <div class="mt-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1865/1865273.png" alt="Logo" width="30" class="d-flex d-sm-inline aling-items-center ms-4 " th:href="@{/}"/>
                             <a class="text-white d-none d-sm-inline text-decoration-none d-flex aling-items-center ms-4" role="button">
-                                <span class="fs-5"th:href="@{/}"><img src="https://cdn-icons-png.flaticon.com/512/1865/1865273.png" alt="Logo" width="30" class="d-inline-block align-text-top" /> TechSupport</span>
+                                <span class="fs-5"th:href="@{/}"> TechSupport</span>
                             </a>
                             <hr class="text-white d-none d-sm-block"/>
 
@@ -87,8 +88,8 @@
                             <ul class="nav nav-pills flex-column mt-2 mt-sm-0" id="menu">
                                 <li class="nav-item my-sm-1 my-2">
                                     <a href="#usuarios" data-bs-toggle="collapse" class="nav-link text-white text-sm-start" aria-current="page">
-                                        <i class="fa fa-gauge"></i>
-                                        <span class="ms-2 d-none d-sm-inline"><img src="https://cdn-icons-png.flaticon.com/512/1352/1352466.png" width="15" class="d-inline-block align-text-center"> USUARIOS</span>
+                                        <i class="fa"><img src="https://cdn-icons-png.flaticon.com/512/1352/1352466.png" width="15" class="d-inline-block align-text-center"></i>
+                                        <span class="ms-2 d-none d-sm-inline"> USUARIOS</span>
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="nav collapse ms-1 flex-column" id="usuarios" data-bs-parent="#menu">
@@ -99,8 +100,8 @@
                                 </li>
                                 <li class="nav-item my-sm-1 my-2">
                                     <a href="#servicios" data-bs-toggle="collapse" class="nav-link text-white text-sm-start" aria-current="page">
-                                        <i class="fa fa-gauge"></i>
-                                        <span class="ms-2 d-none d-sm-inline"><img src="https://cdn-icons-png.flaticon.com/512/2763/2763271.png" width="15" class="d-inline-block align-text-center"> SERVICIOS</span>
+                                        <i class="fa"><img src="https://cdn-icons-png.flaticon.com/512/2763/2763271.png" width="15" class="d-inline-block align-text-center"></i>
+                                        <span class="ms-2 d-none d-sm-inline"> SERVICIOS</span>
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="nav collapse ms-1 flex-column" id="servicios" data-bs-parent="#menu">
@@ -111,8 +112,8 @@
                                 </li>
                                 <li class="nav-item my-sm-1 my-2">
                                     <a href="#citas" data-bs-toggle="collapse" class="nav-link text-white text-sm-start" aria-current="page">
-                                        <i class="fa fa-gauge"></i>
-                                        <span class="ms-2 d-none d-sm-inline"><img src="https://cdn-icons-png.flaticon.com/512/1636/1636025.png" width="15" class="d-inline-block align-text-center"> CITAS</span>
+                                        <i class="fa"><img src="https://cdn-icons-png.flaticon.com/512/1636/1636025.png" width="15" class="d-inline-block align-text-center"></i>
+                                        <span class="ms-2 d-none d-sm-inline"> CITAS</span>
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="nav collapse ms-1 flex-column" id="citas" data-bs-parent="#menu">
@@ -128,9 +129,9 @@
                                 <i class="fa fa-user"></i><span class="ms-1 d-none d-sm-inline">Perfil</span>
                             </a>
                             <div class="dropdown-menu" aria-labellledy="triggerId">
-                                <a class="dropdown-item">
+                                <a class="dropdown-item text-sm-start">
                                     <form class="nav-link" method="post" th:action="@{/logout}">
-                                        <i class="fas" onclick="this.parentNode.submit();">Logout</i>
+                                        <i onclick="this.parentNode.submit();">Logout</i>
                                     </form>
                                 </a>                              
                             </div>
