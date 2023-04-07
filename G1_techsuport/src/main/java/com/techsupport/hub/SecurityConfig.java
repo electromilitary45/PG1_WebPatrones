@@ -19,13 +19,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public UserDetailsService users(){
-        UserDetails admin = User.builder()
+        UserDetails admin1 = User.builder()
                 .username("sebas")
                 .password("{noop}2207")
                 .roles("USER", "VENDEDOR", "ADMIN")
                 .build();
         
-        UserDetails vendedor = User.builder()
+        UserDetails admin2 = User.builder()
                 .username("derek")
                 .password("{noop}4567")
                 .roles("USER", "VENDEDOR", "ADMIN")
@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .roles("USER")
                 .build();
         
-        return new InMemoryUserDetailsManager(cliente, vendedor, admin);
+        return new InMemoryUserDetailsManager(cliente, admin1, admin2);
     }
     
     @Bean
