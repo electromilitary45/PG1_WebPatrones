@@ -1,3 +1,4 @@
+
 package com.techsupport.hub;
 
 import org.springframework.context.annotation.Bean;
@@ -10,10 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- *
- * @author sebas
- */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -22,40 +19,47 @@ public class SecurityConfig {
         UserDetails admin1 = User.builder()
                 .username("sebas")
                 .password("{noop}2207")
-                .roles("USER", "VENDEDOR", "ADMIN")
+                .roles("CLIENTE", "EMPLEADO", "ADMINISTRADOR")
                 .build();
         
         UserDetails admin2 = User.builder()
                 .username("derek")
-                .password("{noop}4567")
-                .roles("USER", "VENDEDOR", "ADMIN")
+                .password("{noop}2145")
+                .roles("CLIENTE", "EMPLEADO", "ADMINISTRADOR")
                 .build();
         
         UserDetails cliente = User.builder()
                 .username("alejandro")
                 .password("{noop}1234")
-                .roles("USER")
+                .roles("CLIENTE")
                 .build();
         
         return new InMemoryUserDetailsManager(cliente, admin1, admin2);
     }
-    
+    /*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
                         //Permisos index para todos (sin iniciar sesion)
                         .requestMatchers("/", 
-                                "index",
+                                "/index",
+                                "/servicio/listadoC",
                                 "/errores/**",
                                 "/webjars/**").permitAll()
                         
                         //Permisos solo para los administradores
-                        .requestMatchers("/usuario/listado", "/usuario/nuevo",
-                                "/servicio/listado", "/servicio/nuevo",
-                                "/cita/listado", "/cita/nuevo").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/usuario/listado", 
+                                "/usuario/nuevo",
+                                "/servicio/listado",
+                                "/servicio/nuevo",
+                                "/cita/listado",
+                                "/cita/nuevo")
+                        .hasRole("ADMINISTRADOR")
                 );
         
         return http.build();
-    }
+    }*/
 }
+
