@@ -2,49 +2,49 @@ function buscarTablaServicio() {
     alert(hola);
     // Declare variables
     /*
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("texto");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("tabla");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
+     var input, filter, table, tr, td, i, txtValue;
+     input = document.getElementById("texto");
+     filter = input.value.toUpperCase();
+     table = document.getElementById("tabla");
+     tr = table.getElementsByTagName("tr");
+     
+     // Loop through all table rows, and hide those who don't match the search query
+     for (i = 0; i < tr.length; i++) {
+     td = tr[i].getElementsByTagName("td")[0];
+     if (td) {
+     txtValue = td.textContent || td.innerText;
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+     tr[i].style.display = "";
+     } else {
+     tr[i].style.display = "none";
+     }
+     }
+     }
      * 
      */
 }
-function showRec(){
+function showRec() {
     getSelectedValue = document.getElementById("status").value;
-    
-    if(getSelectedValue == "rechazada"){
+
+    if (getSelectedValue == "rechazada") {
         document.getElementById("fechaCitaRechazada").style.display = "inline-block";
         document.getElementById("lblFerchaRechazada").style.display = "inline-block";
 
-        
-    } else if (getSelectedValue != "Rechazada"){
+
+    } else if (getSelectedValue != "Rechazada") {
         document.getElementById("fechaCitaRechazada").style.display = "none";
         document.getElementById("lblFerchaRechazada").style.display = "none";
     }
-    
+
 }
-function showInp(){
+function showInp() {
     getSelectedValue = document.getElementById("status").value;
-    
-    if(getSelectedValue == "rechazada"){
+
+    if (getSelectedValue == "rechazada") {
         document.getElementById("fechaCitaRechazada").style.display = "inline-block";
         document.getElementById("lblFerchaRechazada").style.display = "inline-block";
-        
-    } else if (getSelectedValue != "Rechazada"){
+
+    } else if (getSelectedValue != "Rechazada") {
         document.getElementById("fechaCitaRechazada").style.display = "none";
         document.getElementById("lblFerchaRechazada").style.display = "none";
     }
@@ -52,14 +52,25 @@ function showInp(){
 
 
 
-function fechaRecNuevo(){
-    
-    let fecha = document.getElementById('fechaCitaNuevo').value;
-    document.getElementById('fechaCitaRechazadaNuevo').value=fecha;
+function fechaRecNuevo() {
+
+    const fechaNueva = document.getElementById("fechaCitaNuevo"); 
+    const fechaRechazoNueva = document.getElementById("fechaCitaRechazadaNuevo");
+
+    fechaRechazoNueva.value = fechaNueva.value;
 
 }
 
-function imprimir(){
+function fechaModifica() {
+
+    const fechaNueva = document.getElementById("fechaCita"); 
+    const fechaRechazoNueva = document.getElementById("fechaCitaRechazada");
+
+    fechaRechazoNueva.value = fechaNueva.value;
+
+}
+
+function imprimir() {
     window.print();
 }
 

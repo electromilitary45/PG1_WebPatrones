@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-5">
                         <label class="form-label">Fecha Cita</label>
-                        <input type="date" class="form-control" size="15" required="" id="fechaCitaNuevo" th:field="*{fecha_Cita}"  onchange="fechaRecNuevo()">
+                        <input type="date" class="form-control" size="15" required="" id="fechaCitaNuevo" th:field="*{fecha_Cita}">
                     </div>
                     <div class="col-5">
                         <label class="form-label">Hora Cita</label>
@@ -57,7 +57,7 @@
                         <input type="hidden" class="form-control" id="fechaCitaRechazadaNuevo" th:field="*{fecha_Rechazada}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaRecNuevo()">Submit</button>
                 </form>
             </div>
 
@@ -106,7 +106,7 @@
                         <input type="date" class="form-control" id="fechaCitaRechazada" style="display: none" th:field="*{fecha_Rechazada}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaModifica()">Submit</button>
                 </form>
             </div>
         </div>
