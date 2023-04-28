@@ -1,10 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.techsupport.hub.controller;
 //-----Librerias----
 
+import com.techsupport.hub.dao.CitaDao;
+import com.techsupport.hub.domain.Cita;
+import com.techsupport.hub.service.CitaService;
+import com.techsupport.hub.service.ServicioService;
+import com.techsupport.hub.service.UsuarioService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +16,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller // y se importa el org.springframework.stereotype.Controller; 
 
 public class IndexController {
+    @Autowired
+    private CitaService citaService;
+    
+    @Autowired
+    private ServicioService servicioService;
+    
+    @Autowired
+    private UsuarioService usuarioService;
+    
+    @Autowired
+    private CitaDao citaDao;
     
     //---------ruta por defecto-------------
     @GetMapping("/")
     public String inicio(Model model){ //importar springframe.ui.Model
+        var cita=citaService.getCita();
+        
+
+        //--------model
+        model.addAttribute("cita", cita);
+        
         return "index";
     }
 

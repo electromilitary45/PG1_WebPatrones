@@ -2,6 +2,7 @@ package com.techsupport.hub.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 
 /**

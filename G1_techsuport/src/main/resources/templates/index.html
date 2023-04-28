@@ -6,15 +6,51 @@
 
     </head>
 
-    <body>
+    <body class="row">
         <!-- HEADER -->
         <!--<header th:replace="~{layout/plantilla :: header}"></header>-->
-        <div>
-            <!-- SIDEBAR -->
-            <section th:replace="~{layout/plantilla :: sidebar}"></section>
-            
-            
+
+        <!-- SIDEBAR -->
+        <header class="col-md-4" th:replace="~{layout/plantilla :: sidebar}"></header>
+
+        <!-- Desglose -->
+        <div class="col-md-8">
+            <div class="row">
+
+                <!-- Proxima Cita -->
+                <div class="col-md-6">
+                    <section class="container" style="margin-top: 20px;">
+                        <div class="row" >
+                            <div class="lg-col-9" >
+                                <div th:if="${cita ==null or cita.empty}">
+                                    <p>NO HAY DATOS</p>
+                                </div>
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body" th:each="cita, iter : ${cita}" th:if="${iter.last}">
+                                        <h4 class="card-title">Última cita registrada</h4>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">[[${cita.servicio.nombreServicio}]]</h6>
+                                        <p class="card-text">Cliente: [[${cita.usuario.nombre}]] [[${cita.usuario.primapellido}]]</p>
+                                        <p class="card-text">Fecha: [[${cita.fecha_Cita}]]</p>
+                                        <a th:href="@{/cita/listado}" class="card-link">Ver Citas</a>
+                                        <a th:href="${cita.url_Mapa}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Calendario -->
+                <div class="col-md-6">
+                    <div>
+                        
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <!-- Desglose -->
+
         <!-- FOOTER -->
         <footer th:replace="~{layout/plantilla :: footer}"></footer>
     </body>

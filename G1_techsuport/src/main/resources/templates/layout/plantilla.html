@@ -66,7 +66,7 @@
                     </div>
                     <!-- fin lista -->
                     <div>
-                        <form method="post" th:action="@{/logout}">                                <i class="fas fa-door-open text-white"
+                        <form method="post" th:action="@{/logout}"><i class="fas fa-door-open text-white"
                                    onclick="this.parentNode.submit();"></i>                            
                         </form>
                     </div>
@@ -75,15 +75,13 @@
         </header>
 
         <!-- SIDEBAR -->
-        <section th:fragment="sidebar">
+        <header style="width: 20%" th:fragment="sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="d-flex flex-column justify-content-between col-auto bg-secondary min-vh-100">
                         <div class="mt-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1865/1865273.png" alt="Logo" width="30" class="d-flex d-sm-inline aling-items-center ms-4 " th:href="@{/}"/>
-                            <a class="text-white d-none d-sm-inline text-decoration-none d-flex aling-items-center ms-4" role="button">
-                                <span class="fs-5"th:href="@{/}"> TechSupport</span>
-                            </a>
+                            <a class="navbar-brand text-white d-none d-sm-inline text-decoration-none d-flex aling-items-center ms-4" th:href="@{/}"><img src="https://cdn-icons-png.flaticon.com/512/1865/1865273.png" alt="Logo" width="30" class="d-inline-block align-text-top" /> TechSupport</a>
+
                             <hr class="text-white d-none d-sm-block"/>
 
                             <a class="nav-link text-white d-none d-sm-inline text-decoration-none d-flex aling-items-center ms-4" th:href="@{/servicio/listadoC}">SERVICIOS</a>
@@ -144,7 +142,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
         <!-- FIN SIDEBAR -->
 
         <!-- footer -->
