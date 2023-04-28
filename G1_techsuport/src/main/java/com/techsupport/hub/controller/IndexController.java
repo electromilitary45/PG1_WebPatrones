@@ -32,10 +32,14 @@ public class IndexController {
     @GetMapping("/")
     public String inicio(Model model){ //importar springframe.ui.Model
         var cita=citaService.getCita();
+        var servicio=servicioService.getServicio();
+        var usuarios=usuarioService.getUsuario();
         
 
         //--------model
         model.addAttribute("cita", cita);
+        model.addAttribute("servicio", servicio);
+        model.addAttribute("usuario", usuarios);
         
         return "index";
     }
