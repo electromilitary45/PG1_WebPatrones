@@ -6,6 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html>
     <head th:replace="~{layout/plantilla :: head}"></head>
 
+    <<<<<<< Updated upstream
     <body class="row">
         <header class="col-md-4" th:replace="~{layout/plantilla :: sidebar}"></header>
 
@@ -19,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <h5 class="card-title">[[${servicio.nombreServicio}]]</h5> 
                                 <h6 class="card-subtitle mb-2 ">[[${servicio.descripcion}]] </h6> 
                                 <h6 class="card-subtitle mb-2 text-muted text-end">₡ [[${servicio.precio}]] </h6> 
-                                <a class="card-link" > Ver mas</a>
+                                <a class="card-link" >[[#{plantilla.verMas}]]</a>
                                 <p class="card-text"></p> 
                             </div> 
                         </div> 
