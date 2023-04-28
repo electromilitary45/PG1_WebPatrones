@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="./style.css"/>
     </head>
     <body>
-        
+
         <!-- SIDEBAR -->
         <header style="width: 20%" th:fragment="sidebar">
             <div class="container-fluid">
@@ -63,6 +63,12 @@
                                 </li> 
                             </ul>  
                         </div>
+                        <div class="col-md-3 text-white text-end">
+                            <ul class="navbar-nav">
+                                <a class="nav-link" th:href="@{/(lang=es)}">ES </a>
+                                <a class="nav-link" th:href="@{/(lang=en)}">EN</a>
+                            </ul>
+                        </div> 
                         <div class="dropdow open">
                             <a class="btn border-none outline-none text-white dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-user"></i><span class="ms-1 d-none d-sm-inline">[[#{plantilla.perfil}]]</span>
@@ -70,7 +76,7 @@
                             <div class="dropdown-menu" aria-labellledy="triggerId">
                                 <a class="dropdown-item text-sm-start">
                                     <form class="nav-link" method="post" th:action="@{/logout}">
-                                        <i onclick="this.parentNode.submit();">Logout</i>
+                                        <i onclick="this.parentNode.submit();">[[#{plantilla.logout}]]</i>
                                     </form>
                                 </a>                              
                             </div>
