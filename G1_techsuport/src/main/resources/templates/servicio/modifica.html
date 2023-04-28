@@ -2,50 +2,51 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
     <head th:replace="~{layout/plantilla :: head}"></head>
-    
-    <body>
+
+    <body class="row">
         <!-- HEADER -->
-        <header th:replace="~{layout/plantilla :: header}"></header>
+        <header class="col-md-4" th:replace="~{layout/plantilla :: sidebar}"></header>
 
-        <!-- FORMULARIO -->
+        <div class="col-md-8">
+            <!-- FORMULARIO -->
 
-        <div style="padding: 10px;" >
-            <h4 th:if="${servicio.idServicio != null}" class="text-center" >SERVICIO: [[${servicio.nombreServicio}]]</h4>
-            <h4 th:if="${servicio.idServicio == null}" class="text-center" >Nuevo Servicio</h4>
+            <div style="padding: 10px;" >
+                <h4 th:if="${servicio.idServicio != null}" class="text-center" >SERVICIO: [[${servicio.nombreServicio}]]</h4>
+                <h4 th:if="${servicio.idServicio == null}" class="text-center" >Nuevo Servicio</h4>
+            </div>
+
+            <div style="margin: 20px; padding: 0 40% 0 0 " class="container">
+                <form th:action="@{/servicio/guardar}" method="POST" th:object="${servicio}" class="row">
+                    <input type="hidden" name="idServicio" th:field='*{idServicio}'>
+                    <div class="col-5">
+                        <label class="form-label">Nombre Servicio</label>
+                        <input type="text" class="form-control" size="15" required="" id="nombreServicio" th:field="*{nombreServicio}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" size="15" required="" id="descripcion" th:field="*{descripcion}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="precio" required="" th:field="*{precio}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">IMAGEN</label>
+                        <input type="text" class="form-control" id="precio" required="" th:field="*{imagen}">
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" name="status" id="status" required="" onchange="showInp()" th:field="*{status}">
+                            <option value='1' >Activa</option>
+                            <option value='0' >Inactiva</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+                </form>
+            </div>
         </div>
-
-        <div style="margin: 20px; padding: 0 40% 0 0 " class="container">
-            <form th:action="@{/servicio/guardar}" method="POST" th:object="${servicio}" class="row">
-                <input type="hidden" name="idServicio" th:field='*{idServicio}'>
-                <div class="col-5">
-                    <label class="form-label">Nombre Servicio</label>
-                    <input type="text" class="form-control" size="15" required="" id="nombreServicio" th:field="*{nombreServicio}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Descripcion</label>
-                    <input type="text" class="form-control" size="15" required="" id="descripcion" th:field="*{descripcion}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Precio</label>
-                    <input type="number" class="form-control" id="precio" required="" th:field="*{precio}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">IMAGEN</label>
-                    <input type="text" class="form-control" id="precio" required="" th:field="*{imagen}">
-                </div>
-
-                <div class="col-5">
-                    <label class="form-label">Status</label>
-                    <select class="form-select" name="status" id="status" required="" onchange="showInp()" th:field="*{status}">
-                        <option value='1' >Activa</option>
-                        <option value='0' >Inactiva</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
-            </form>
-        </div>
-
         <!-- FIN FORMULARIO -->
 
         <!-- HEADER -->

@@ -3,59 +3,61 @@
 
     <head th:replace="~{layout/plantilla :: head}">
 
-    <body>
+    <body class="row">
         <!-- HEADER -->
-        <header th:replace="~{layout/plantilla :: header}"></header>
-        
-        <div style="padding: 10px;" >
-            <h4 th:if="${usuario.idUsuario != null}" class="text-center" >USUARIO: [[${usuario.nombre}]] [[${usuario.primapellido}]]</h4>
-            <h4 th:if="${usuario.idUsuario == null}" class="text-center" >Nuevo Usuario</h4>
-        </div>
+        <header class="col-md-4" th:replace="~{layout/plantilla :: sidebar}"></header>
 
-        <div style="margin: 20px; padding: 0 40% 0 0 " class="container">
-            <form th:action="@{/usuario/guardar}" method="POST" th:object="${usuario}" class="row">
-                <input type="hidden" name="idUsuario" th:field='*{idUsuario}' >
-                <div class="col-5">
-                    <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" size="15" id="nombre" required="" th:field="*{nombre}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Primer apellido</label>
-                    <input type="text" class="form-control" id="primapellido" required="" th:field="*{primapellido}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Segundo Apellido</label>
-                    <input type="text" class="form-control" id="segapellido" required="" th:field="*{segapellido}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="correo" required="" th:field="*{correo}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Contraseña</label>
-                    <input type="text" class="form-control" id="contrasena" minlength="8" required="" th:field="*{contrasena}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Telefono</label>
-                    <input type="number" class="form-control" id="Telefono" required="" minlength="8" th:field="*{numtelefono}">
-                </div>
-                <div class="col-5">
-                    <label class="form-label">Status</label>
-                    <select class="form-select" required="" th:field="*{status}">
-                        <option value=1 >Activo</option>
-                        <option value=0 >Inactivo</option>
-                    </select>
-                </div>
-                <div class="col-5">
-                    <label class="form-label">ROL</label>
-                    <select class="form-select" required="" th:field="*{rol}">
-                        <option value="Cliente">Cliente</option>
-                        <option value="Empleado" >Empleado</option>
-                        <option value="Administrador" >Administrador</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
-            </form>
+        <div class="col-md-8">
+            <div style="padding: 10px;" >
+                <h4 th:if="${usuario.idUsuario != null}" class="text-center" >USUARIO: [[${usuario.nombre}]] [[${usuario.primapellido}]]</h4>
+                <h4 th:if="${usuario.idUsuario == null}" class="text-center" >Nuevo Usuario</h4>
+            </div>
+
+            <div style="margin: 20px; padding: 0 40% 0 0 " class="container">
+                <form th:action="@{/usuario/guardar}" method="POST" th:object="${usuario}" class="row">
+                    <input type="hidden" name="idUsuario" th:field='*{idUsuario}' >
+                    <div class="col-5">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" size="15" id="nombre" required="" th:field="*{nombre}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Primer apellido</label>
+                        <input type="text" class="form-control" id="primapellido" required="" th:field="*{primapellido}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Segundo Apellido</label>
+                        <input type="text" class="form-control" id="segapellido" required="" th:field="*{segapellido}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="correo" required="" th:field="*{correo}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Contraseña</label>
+                        <input type="text" class="form-control" id="contrasena" minlength="8" required="" th:field="*{contrasena}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Telefono</label>
+                        <input type="number" class="form-control" id="Telefono" required="" minlength="8" th:field="*{numtelefono}">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" required="" th:field="*{status}">
+                            <option value=1 >Activo</option>
+                            <option value=0 >Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label">ROL</label>
+                        <select class="form-select" required="" th:field="*{rol}">
+                            <option value="Cliente">Cliente</option>
+                            <option value="Empleado" >Empleado</option>
+                            <option value="Administrador" >Administrador</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" >Submit</button>
+                </form>
+            </div>
         </div>
 
         <!-- FOOTER -->
