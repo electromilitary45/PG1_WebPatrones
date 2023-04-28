@@ -94,7 +94,7 @@
                     <div class="row" >
                         <div class="lg-col-9" >
                             <h3 class="text-center">[[#{citas.listaCitas}]]</h3>
-                            <input class="btn btn-warning" type="button" value="Imprimir" onclick="imprimir()">   
+                               
                             <div th:if="${cita ==null or cita.empty}">
                                 <p>[[#{plantilla.sinDatos}]]</p>
                             </div>
@@ -108,7 +108,6 @@
                                     <th scope="col">[[#{citas.horaCita}]]</th>
                                     <th scope="col">[[#{citas.status}]]</th>
                                     <th scope="col">[[#{citas.direccion}]]</th>
-                                    <th scope="col">[[#{citas.adminis}]]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -124,12 +123,6 @@
                                         <button th:if="${cita.status == 'rechazada'}" type="button" class="btn btn-danger">[[#{citas.rechazada}]]</button>
                                         </td>
                                         <td><a th:href="${cita.url_Mapa}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a></td>
-                                        <td>
-                                            <!-- BTN-MODIFICAR -->
-                                            <a th:href="@{/cita/editar/}+${cita.id_Cita}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
-                                            <!-- BTN-ELIMINAR -->
-                                            <a th:href="@{/cita/eliminar/}+${cita.id_Cita}"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" width="32px"></a>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
