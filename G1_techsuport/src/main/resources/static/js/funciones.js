@@ -55,7 +55,7 @@ function showInp(){
 function fechaRecNuevo(){
     
     let fecha = document.getElementById('fechaCitaNuevo').value;
-    document.getElementById('fechaCitaRechazadaNuevo').=fecha;
+    document.getElementById('fechaCitaRechazadaNuevo').value=fecha;
 
 }
 

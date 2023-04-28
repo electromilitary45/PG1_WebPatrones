@@ -5,44 +5,53 @@
 
     <body class="row">
 
-        <header th:replace="~{layout/plantilla :: sidebar}"></header>
-        <section class="container" style="margin-top: 20px;">
-            <div class="row" >
-                <div class="lg-col-9" th:if="${servicio!=null and !servicio.empty}">
-                    <h3 class="text-center">[[#{servicios.lista}]]</h3>
-                    <div th:if="${servicio ==null or servicio.empty}">
-                        <p>[[#{plantilla.sinDatos}]]</p>
+        <header class="col-md-4" th:replace="~{layout/plantilla :: sidebar}"></header>
+
+        <div class="col-md-8">
+            <section class="container" style="margin-top: 20px;">
+                <div class="row" >
+                    <div class="lg-col-9" th:if="${servicio!=null and !servicio.empty}">
+                        <h3 class="text-center">[[#{servicios.lista}]]</h3>
+                        <div th:if="${servicio ==null or servicio.empty}">
+                            <p>[[#{plantilla.sinDatos}]]</p>
+                        </div>
+                        <!-- TABLA -->
+                        <table class="table table-hover"  th:if="${servicio!=null and !servicio.empty}">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">[[#{servicios.imagen}]]</th>
+                                    <th scope="col">[[#{servicios.nombre}]]</th>
+                                    <th scope="col">[[#{servicios.descripcion}]]</th>
+                                    <th scope="col">[[#{servicios.precio}]]</th>
+                                    <th scope="col">[[#{servicios.status}]]</th>
+                                    <th scope="col">[[#{servicios.acciones}]]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="servicio : ${servicio}">
+                                    <th scope="row">[[${servicio.idServicio}]]</th>
+                                    <td><img th:src="*{servicio.imagen}" width="129"/></td>
+                                    <td>[[${servicio.nombreServicio}]]</td>
+                                    <td>[[${servicio.descripcion}]]</td>
+                                    <td>₡ [[${servicio.precio}]] </td>
+                                    <td>
+                                        <button th:if="${servicio.status == true}"  class="btn btn-success">[[#{plantilla.activo}]]</button>
+                                        <button th:if="${servicio.status == false}"  class="btn btn-danger">[#{plantilla.inactivo}]]</button>
+                                    </td>
+                                    <td>
+                                        <!-- BTN-MODIFICAR -->
+                                        <a th:href="@{/servicio/editar/}+${servicio.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png" width="32px"></a>
+                                        <!-- BTN-ELIMINAR -->
+                                        <a th:href="@{/servicio/eliminar/}+${servicio.idServicio}"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" width="32px"></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <!-- TABLA -->
-                    <table class="table table-hover"  th:if="${servicio!=null and !servicio.empty}">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">[[#{servicios.imagen}]]</th>
-                                <th scope="col">[[#{servicios.nombre}]]</th>
-                                <th scope="col">[[#{servicios.descripcion}]]</th>
-                                <th scope="col">[[#{servicios.precio}]]</th>
-                                <th scope="col">[[#{servicios.status}]]</th>
-                                <th scope="col">[[#{servicios.acciones}]]</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="servicio : ${servicio}">
-                                <th scope="row">[[${servicio.idServicio}]]</th>
-                                <td><img th:src="*{servicio.imagen}" width="129"/></td>
-                                <td>[[${servicio.nombreServicio}]]</td>
-                                <td>[[${servicio.descripcion}]]</td>
-                                <td>₡ [[${servicio.precio}]] </td>
-                                <td>
-                                    <button th:if="${servicio.status == true}"  class="btn btn-success">[[#{plantilla.activo}]]</button>
-                                    <button th:if="${servicio.status == false}"  class="btn btn-danger">[#{plantilla.inactivo}]]</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
     <footer th:replace="~{layout/plantilla :: footer}"></footer>
 </body>

@@ -110,4 +110,3 @@ insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, statu
 insert into cita(id_Usuario, id_Servicio, fecha_Cita, hora_Cita, url_Mapa, status) values (1,1,'2021-05-20','10:00:00','https://www.google.com/maps/place/cargo', 'pendiente');
 
 update cita set URLMapa='alo' WHERE idCita=1;
-
