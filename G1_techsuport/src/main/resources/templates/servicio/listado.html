@@ -37,7 +37,7 @@
                                     <td>₡ [[${servicio.precio}]] </td>
                                     <td>
                                         <button th:if="${servicio.status == true}"  class="btn btn-success">[[#{plantilla.activo}]]</button>
-                                        <button th:if="${servicio.status == false}"  class="btn btn-danger">[#{plantilla.inactivo}]]</button>
+                                        <button th:if="${servicio.status == false}"  class="btn btn-danger">[[#{plantilla.inactivo}]]</button>
                                     </td>
                                     <td>
                                         <!-- BTN-MODIFICAR -->
