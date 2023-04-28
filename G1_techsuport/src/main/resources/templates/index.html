@@ -16,7 +16,7 @@
         <!-- Desglose -->
         <div class="col-md-8">
             <br>
-            <h3 class="text-center">Resumen Administrativo</h3>
+            <h3 class="text-center">[[#{index.resumen}]]</h3>
             <div class="row">
 
                 <!-- Ultima Cita -->
@@ -25,15 +25,15 @@
                         <div class="row" >
                             <div class="lg-col-6" >
                                 <div th:if="${cita ==null or cita.empty}">
-                                    <p>NO HAY DATOS</p>
+                                    <p>[[#{plantilla.sinDatos}]]</p>
                                 </div>
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body" th:each="cita, iter : ${cita}" th:if="${iter.last}">
-                                        <h4 class="card-title">Última cita registrada</h4>
+                                        <h4 class="card-title">[[#{index.ultimaC}]]</h4>
                                         <h6 class="card-subtitle mb-2 text-body-secondary">[[${cita.servicio.nombreServicio}]]</h6>
-                                        <p class="card-text">Cliente: [[${cita.usuario.nombre}]] [[${cita.usuario.primapellido}]]</p>
-                                        <p class="card-text">Fecha: [[${cita.fecha_Cita}]]</p>
-                                        <a th:href="@{/cita/listado}" class="card-link">Ver Citas</a>
+                                        <p class="card-text">[[#{index.clienteC}]] [[${cita.usuario.nombre}]] [[${cita.usuario.primapellido}]]</p>
+                                        <p class="card-text">[[#{index.fechaC}]] [[${cita.fecha_Cita}]]</p>
+                                        <a th:href="@{/cita/listado}" class="card-link">[[#{index.verCitas}]]</a>
                                         <a th:href="${cita.url_Mapa}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a>
                                     </div>
                                 </div>
@@ -48,15 +48,15 @@
                         <div class="row" >
                             <div class="lg-col-6" >
                                 <div th:if="${servicio ==null or servicio.empty}">
-                                    <p>NO HAY DATOS</p>
+                                    <p>[[#{plantilla.sinDatos}]]</p>
                                 </div>
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body" th:each="servicio, iter : ${servicio}" th:if="${iter.last}">
-                                        <h4 class="card-title">Último servicio registrado</h4>
+                                        <h4 class="card-title">[[#{index.ultimoS}]]</h4>
                                         <h6 class="card-subtitle mb-2 text-body-secondary">[[${servicio.nombreServicio}]]</h6>
                                         <p class="card-text">[[${servicio.descripcion}]]</p>
                                         <p class="card-text">₡ [[${servicio.precio}]]</p>
-                                        <a th:href="@{/servicio/listado}" class="card-link">Ver Servicios</a>
+                                        <a th:href="@{/servicio/listado}" class="card-link">[[#{index.verServicios}]]</a>
                                     </div>
                                 </div>
                             </div>
@@ -70,15 +70,15 @@
                         <div class="row" >
                             <div class="lg-col-6" >
                                 <div th:if="${usuario ==null or usuario.empty}">
-                                    <p>NO HAY DATOS</p>
+                                    <p>[[#{plantilla.sinDatos}]]</p>
                                 </div>
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body" th:each="usuario, iter : ${usuario}" th:if="${iter.last}">
-                                        <h4 class="card-title">Último usuario registrado</h4>
+                                        <h4 class="card-title">[[#{index.ultimoU}]]</h4>
                                         <p class="card-subtitle mb-2 text-body-secondary">[[${usuario.nombre}]] [[${usuario.primapellido}]] [[${usuario.segapellido}]]</p>
-                                        <p class="card-text">Correo: [[${usuario.correo}]]</p>
-                                        <p class="card-text">Rol: [[${usuario.rol}]]</p>
-                                        <a th:href="@{/usuario/listado}" class="card-link">Ver Usuarios</a>
+                                        <p class="card-text">[[#{index.correoU}]] [[${usuario.correo}]]</p>
+                                        <p class="card-text">[[#{index.rolU}]] [[${usuario.rol}]]</p>
+                                        <a th:href="@{/usuario/listado}" class="card-link">[[#{index.verUsuarios}]]</a>
                                     </div>
                                 </div>
                             </div>
@@ -93,22 +93,22 @@
                 <section class="container" style="margin-top: 20px;">
                     <div class="row" >
                         <div class="lg-col-9" >
-                            <h3 class="text-center">Lista de Citas</h3>
+                            <h3 class="text-center">[[#{citas.listaCitas}]]</h3>
                             <input class="btn btn-warning" type="button" value="Imprimir" onclick="imprimir()">   
                             <div th:if="${cita ==null or cita.empty}">
-                                <p>NO HAY DATOS</p>
+                                <p>[[#{plantilla.sinDatos}]]</p>
                             </div>
                             <table class="table table-hover " th:if="${cita!=null and !cita.empty}">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Servicio</th>
-                                        <th scope="col">Fecha de Cita</th>
-                                        <th scope="col">Hora de Cita</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Direccion</th>
-                                        <th scope="col">Administración</th>
+                                    <th scope="col">[[#{citas.usuario}]]</th>
+                                    <th scope="col">[[#{citas.servicio}]]</th>
+                                    <th scope="col">[[#{citas.fechaCita}]]</th>
+                                    <th scope="col">[[#{citas.horaCita}]]</th>
+                                    <th scope="col">[[#{citas.status}]]</th>
+                                    <th scope="col">[[#{citas.direccion}]]</th>
+                                    <th scope="col">[[#{citas.adminis}]]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -119,9 +119,9 @@
                                         <td>[[${cita.fecha_Cita}]]</td>
                                         <td>[[${cita.hora_Cita}]]</td>
                                         <td>
-                                            <button th:if="${cita.status == 'pendiente'}" type="button" class="btn btn-warning">PENDIENTE</button>
-                                            <button th:if="${cita.status == 'aceptada'}" type="button" class="btn btn-success">ACEPTADA</button>
-                                            <button th:if="${cita.status == 'rechazada'}" type="button" class="btn btn-danger">RECHAZADA</button>
+                                            <button th:if="${cita.status == 'pendiente'}" type="button" class="btn btn-warning">[[#{citas.pendiente}]]</button>
+                                        <button th:if="${cita.status == 'aceptada'}" type="button" class="btn btn-success">[[#{citas.aceptada}]]</button>
+                                        <button th:if="${cita.status == 'rechazada'}" type="button" class="btn btn-danger">[[#{citas.rechazada}]]</button>
                                         </td>
                                         <td><a th:href="${cita.url_Mapa}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/854/854901.png" width="32"></a></td>
                                         <td>

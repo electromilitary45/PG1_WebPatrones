@@ -45,8 +45,8 @@
                                     <td>[[${usuario.rol}]]</td>
                                     <td>[[${usuario.numtelefono}]]</td>
                                     <td>
-                                        <button th:if="${usuario.status == true}"  class="btn btn-success">ACTIVO</button>
-                                        <button th:if="${usuario.status == false}"  class="btn btn-danger">INACTIVO</button>
+                                        <button th:if="${usuario.status == true}"  class="btn btn-success">[[#{plantilla.activo}]]</button>
+                                        <button th:if="${usuario.status == false}"  class="btn btn-danger">[[#{plantilla.inactivo}]]</button>
                                     </td>
                                     <td>
                                         <!-- BTN-MODIFICAR -->

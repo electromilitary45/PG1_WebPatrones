@@ -12,8 +12,8 @@
         <!-- FORMULARIO -->
         <div class="col-md-8">
             <div style="padding: 10px;" >
-                <h4 th:if="${cita.id_Cita != null}" class="text-center" >ID CITA: [[${cita.id_Cita}]]</h4>
-                <h4 th:if="${cita.id_Cita == null}" class="text-center" >Nueva Cita</h4>
+                <h4 th:if="${cita.id_Cita != null}" class="text-center" >[[#{citas.idCita}]] [[${cita.id_Cita}]]</h4>
+                <h4 th:if="${cita.id_Cita == null}" class="text-center" >[[#{citas.nuevaCita}]]</h4>
             </div>
 
             <!-- INICIO: FORMULARIO MODIFICACION -->
@@ -21,43 +21,43 @@
                 <form th:action="@{/cita/guardar}" method="POST" th:object="${cita}" class="row">
                     <input type="hidden" name="idCita" th:field='*{id_Cita}'>
                     <div class="col-5">
-                        <label class="form-label">ID Usuario</label>
+                        <label class="form-label">[[#{citas.idUsuario}]]</label>
                         <select  class="form-control" name="usuario" required="" >
-                            <option>SELECCIONE</option>
+                            <option>[[#{citas.seleccione}]]</option>
                             <option th:each="usuario:${usuario}"  th:value="${usuario.idUsuario}" th:field="*{usuario.idUsuario}">[[${usuario.nombre}]] [[${usuario.primapellido}]]</option>
                         </select>
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Servicio</label>
+                        <label class="form-label">[[#{citas.servicio}]]</label>
                         <select  class="form-control" name="servicio" required="" >
-                            <option>SELECCIONE</option>
+                            <option>[[#{citas.seleccione}]]</option>
                             <option th:each="servicio:${servicio}" th:value="${servicio.idServicio}" th:field="*{servicio.idServicio}">[[${servicio.idServicio}]] - [[${servicio.nombreServicio}]]</option>
                         </select>
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Fecha Cita</label>
+                        <label class="form-label">[[#{citas.fechaCita}]]</label>
                         <input type="date" class="form-control" size="15" required="" id="fechaCitaNuevo" th:field="*{fecha_Cita}">
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Hora Cita</label>
+                        <label class="form-label">[[#{citas.horaCita}]]</label>
                         <input type="time" class="form-control" id="horaCita" required="" th:field="*{hora_Cita}">
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Maps</label>
+                        <label class="form-label">[[#{citas.map}]]</label>
                         <input type="text" class="form-control" id="url_Mapa" required="" th:field="*{url_Mapa}">
                     </div>
 
                     <select class="form-select" name="status" id="status" style="display: none" th:field="*{status}">
-                        <option value='pendiente' >Pendiente</option>
+                        <option value='pendiente' >[[#{citas.pendiente}]]</option>
 
                     </select>
 
                     <div class="col-5">
-                        <label class="form-label" id="lblFerchaRechazada" style="display: none">Fecha de Rechazo</label>
+                        <label class="form-label" id="lblFerchaRechazada" style="display: none">[[#{citas.fechaRechazo}]]</label>
                         <input type="hidden" class="form-control" id="fechaCitaRechazadaNuevo" th:field="*{fecha_Rechazada}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaRecNuevo()">Submit</button>
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaRecNuevo()">[[#{accion.guardar}]]</button>
                 </form>
             </div>
 
@@ -68,45 +68,45 @@
                 <form th:action="@{/cita/guardar}" method="POST" th:object="${cita}" class="row">
                     <input type="hidden" name="idCita" th:field='*{id_Cita}'>
                     <div class="col-5">
-                        <label class="form-label">ID Usuario</label>
+                        <label class="form-label">[[#{citas.idUsuario}]]</label>
                         <select  class="form-control" name="usuario" required="true" >
-                            <option>SELECCIONE</option>
+                            <option>[[#{citas.seleccione}]]</option>
                             <option th:each="usuario:${usuario}" th:value="${usuario.idUsuario}" th:field="*{usuario.idUsuario}">[[${usuario.nombre}]] [[${usuario.primapellido}]]</option>
                         </select>
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Servicio</label>
+                        <label class="form-label">[[#{citas.servicio}]]</label>
                         <select  class="form-control" name="servicio" required="true" >
-                            <option>SELECCIONE</option>
+                            <option>[[#{citas.seleccione}]]</option>
                             <option th:each="servicio:${servicio}" th:value="${servicio.idServicio}" th:field="*{servicio.idServicio}">[[${servicio.idServicio}]] - [[${servicio.nombreServicio}]]</option>
                         </select>
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Fecha Cita</label>
+                        <label class="form-label">[[#{citas.fechaCita}]]</label>
                         <input type="date" class="form-control" size="15" id="fechaCita" th:field="*{fecha_Cita}">
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Hora Cita</label>
+                        <label class="form-label">[[#{citas.horaCita}]]</label>
                         <input type="time" class="form-control" id="horaCita" th:field="*{hora_Cita}">
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Maps</label>
+                        <label class="form-label">[[#{citas.map}]]</label>
                         <input type="text" class="form-control" id="url_Mapa" th:field="*{url_Mapa}">
                     </div>
                     <div class="col-5">
-                        <label class="form-label">Status</label>
+                        <label class="form-label">[[#{citas.status}]]</label>
                         <select class="form-select" name="status" id="status" onchange="showInp()" th:field="*{status}">
-                            <option value='pendiente' th='<option value="pendiente">text</option>'>Pendiente</option>
-                            <option value='aceptada' th='<option value="aceptada">text</option>'>Aceptada</option>
-                            <option value='rechazada' th='<option value="rechazada">text</option>'>Rechazada</option>
+                            <option value='pendiente' th='<option value="pendiente">text</option>'>[[#{citas.pendiente}]]</option>
+                            <option value='aceptada' th='<option value="aceptada">text</option>'>[[#{citas.aceptada}]]</option>
+                            <option value='rechazada' th='<option value="rechazada">text</option>'>[[#{citas.rechazada}]]</option>
                         </select>
                     </div>
                     <div class="col-5">
-                        <label class="form-label" id="lblFerchaRechazada" style="display: none">Fecha de Rechazo</label>
+                        <label class="form-label" id="lblFerchaRechazada" style="display: none">[[#{citas.fechaRechazo}]]</label>
                         <input type="date" class="form-control" id="fechaCitaRechazada" style="display: none" th:field="*{fecha_Rechazada}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaModifica()">Submit</button>
+                    <button type="submit" class="btn btn-primary my-2 col-5 mx-2" onclick="fechaModifica()">[[#{accion.guardar}]]</button>
                 </form>
             </div>
         </div>
